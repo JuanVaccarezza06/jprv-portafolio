@@ -1,0 +1,119 @@
+<header
+  class="fixed top-0 w-full flex justify-between items-center px-8 py-5 bg-black/80 backdrop-blur-md border-b border-neutral-900 z-50"
+>
+  <div class="flex flex-col">
+    <h1 class="text-lg font-bold text-white tracking-tight">Juan Pablo Vaccarezza</h1>
+    <p class="text-xs text-neutral-500">Desarrollador de Software | Técnico Universitario</p>
+  </div>
+
+  <nav class="hidden md:flex gap-8 text-sm text-neutral-400 font-medium">
+    <a class="hover:text-white cursor-pointer transition-colors" (click)="scrollToSection('inicio')"
+      >Inicio</a
+    >
+    <a
+      class="hover:text-white cursor-pointer transition-colors"
+      (click)="scrollToSection('proyectos')"
+      >Proyectos</a
+    >
+    <a
+      class="hover:text-white cursor-pointer transition-colors"
+      (click)="scrollToSection('sobre-mi')"
+      >Sobre Mi</a
+    >
+    <a
+      class="hover:text-white cursor-pointer transition-colors"
+      (click)="scrollToSection('contacto')"
+      >Contacto</a
+    >
+  </nav>
+
+  <div class="flex gap-4 text-neutral-400">
+    <a href="#" class="hover:text-white transition-colors" aria-label="GitHub">GH</a>
+    <a href="#" class="hover:text-white transition-colors" aria-label="LinkedIn">IN</a>
+    <a href="#" class="hover:text-white transition-colors" aria-label="Email">Mail</a>
+  </div>
+</header>
+
+<main class="bg-black text-white min-h-screen">
+  <section
+    id="inicio"
+    class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20"
+  >
+    <div
+      class="w-12 h-12 flex items-center justify-center rounded-2xl bg-neutral-900 border border-neutral-800 mb-8 text-cyan-400 font-mono font-bold"
+    >
+      &lt;/&gt;
+    </div>
+
+    <h2 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
+      Ingeniería de software <br />
+      <span class="text-cyan-400">precisa</span> y elegante
+    </h2>
+
+    <p class="text-neutral-400 max-w-2xl text-lg mb-10 leading-relaxed">
+      Técnico Universitario en Programación especializado en desarrollo web y <br />
+      aplicaciones de escritorio. Transformo requisitos complejos en soluciones <br />
+      robustas y mantenibles con Angular, Java y C.
+    </p>
+
+    <div class="flex gap-4">
+      <button
+        class="bg-cyan-400 text-black px-6 py-2.5 rounded-lg font-semibold hover:bg-cyan-300 transition-colors"
+        (click)="scrollToSection('proyectos')"
+      >
+        Ver Proyectos
+      </button>
+      <button
+        class="bg-transparent text-white px-6 py-2.5 rounded-lg font-medium border border-neutral-800 hover:bg-neutral-900 transition-colors"
+        (click)="scrollToSection('contacto')"
+      >
+        Contactar
+      </button>
+    </div>
+
+    <div class="absolute bottom-10 text-neutral-600 animate-bounce">↓</div>
+  </section>
+
+  <section id="proyectos" class="min-h-screen flex flex-col items-center px-4 py-24">
+    <h3 class="text-3xl font-bold mb-4">Proyectos Destacados</h3>
+    <p class="text-neutral-400 text-center max-w-xl mb-12">
+      Una selección de proyectos que demuestran mis habilidades en diferentes tecnologías y
+      dominios. Haz clic en cada tarjeta para explorar los detalles.
+    </p>
+
+    <div class="w-full max-w-4xl flex flex-col gap-4"></div>
+  </section>
+
+  <section id="contacto" class="min-h-screen flex flex-col justify-center items-center px-4">
+    <h3 class="text-3xl font-bold mb-4">Contacto</h3>
+    <p class="text-neutral-400 text-center max-w-xl mb-12">
+      ¿Tienes un proyecto en mente? Me encantaría escucharte. Estoy disponible <br />
+      para oportunidades freelance y colaboraciones.
+    </p>
+
+    <div
+      class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 flex flex-col items-center gap-4 w-full max-w-md"
+    >
+      <div class="text-cyan-400 bg-neutral-900 p-3 rounded-full">✉️</div>
+      <div class="text-center">
+        <span class="text-xs text-neutral-500 font-semibold tracking-widest">EMAIL</span>
+        <a
+          href="mailto:jpvaccarezza@example.com"
+          class="block text-white font-medium mt-1 hover:text-cyan-400 transition-colors"
+        >
+          jpvaccarezza&#64;example.com
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer
+  class="bg-black border-t border-neutral-900 py-8 px-8 flex justify-between items-center text-sm text-neutral-500"
+>
+  <p>© 2026 Portfolio. Todos los derechos reservados.</p>
+  <p>
+    Desarrollado con <span class="text-cyan-400 font-medium">Angular</span> y
+    <span class="text-cyan-400 font-medium">Tailwind CSS</span>
+  </p>
+</footer>
