@@ -30,8 +30,8 @@ export class ProjectsSectionComponent {
       technologies: ['Spring Security', 'Google Maps', 'Hateoas', 'Tailwind CSS'],
       githubLink: 'https://github.com/tu-usuario/sullivanmor',
       codeFilename: 'filter.service.ts',
-      codeLanguage: 'typescript', // ← falta esto
-      demoLink: 'https://sullivanmor.com',
+      codeLanguage: 'typescript',
+      demoLink: '',
       videoUrl: 'sullivan-preview.mp4',
       code: `import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
@@ -53,7 +53,6 @@ export class FilterService {
   }
 }`,
     },
-
     {
       id: 'beach-resort-system',
       title: 'Sistema de Gestión de Balneario',
@@ -65,18 +64,18 @@ export class FilterService {
         'A nivel técnico, destaca por prescindir de bases de datos relacionales estándar en favor de un sistema de almacenamiento y persistencia propio basado en archivos JSON, implementando clases genéricas para un manejo dinámico y eficiente de las colecciones de datos.',
       ],
       mainFeatures: [
-        'Gestión integral de reservas y contratos (Día, Mes, Temporada)',
-        'Persistencia de datos customizada mediante lectura/escritura de archivos JSON',
-        'Arquitectura basada en Clases Genéricas (Generics) y herencia abstracta',
+        'Gestión integral de reservas y contratos',
+        'Arquitectura basada en Clases Genéricas y herencia abstracta',
         'Sistema robusto de manejo de excepciones personalizadas',
         'Control de estado y disponibilidad de servicios en tiempo real',
+        'Persistencia de datos customizada mediante lectura/escritura de archivos JSON',
       ],
       stack: ['Java', 'JSON'],
-      technologies: ['POO', 'Generics', 'LinkedHashSet / Collections'],
+      technologies: ['POO', 'Generics', 'Collections'],
       githubLink: 'https://github.com/juanvaccarezza06/beach-resort-system',
       codeFilename: 'Almacenamiento.java',
       codeLanguage: 'java',
-      demoLink: '', // Al ser de consola, puedes dejarlo vacío o poner un enlace a un video/readme
+      demoLink: '',
       videoUrl: '',
       code: `package PackageGenerico;
 
@@ -126,14 +125,13 @@ public class Almacenamiento<T extends Modelo> {
         'A nivel técnico, el proyecto destaca por su sistema de persistencia local de datos empleando archivos binarios (`fread`, `fwrite`, `fseek`) y una gestión eficiente de la memoria a través de punteros (simples y dobles) y arreglos dinámicos utilizando `malloc` y `realloc`.',
       ],
       mainFeatures: [
-        'Gestión completa de operaciones CRUD para vuelos y pasajeros',
-        'Persistencia de información mediante lectura y escritura de archivos binarios',
-        'Manejo de memoria dinámica con redimensionamiento automático de arreglos',
-        'Uso de punteros y punteros dobles para la manipulación de datos en memoria',
-        'Arquitectura modular separada por funcionalidades y estructuras (structs)',
+        'Sistema CRUD integral para la gestión de vuelos y pasajeros',
+        'Persistencia de datos local mediante archivos binarios',
+        'Gestión de memoria dinámica empleando punteros dobles',
+        'Arquitectura modular basada en structs y funcionalidades',
       ],
-      stack: ['C', 'Binary Files'],
-      technologies: ['Memoria Dinámica', 'Punteros', 'Archivos Binarios', 'Structs'],
+      stack: ['C', 'Archivos binarios'],
+      technologies: ['Punteros', 'Memoria Dinámica', 'Estructuras anidadas'],
       githubLink: 'https://github.com/juanvaccarezza06/crud-in-c',
       codeFilename: 'main.c',
       codeLanguage: 'c',
@@ -179,8 +177,38 @@ public class Almacenamiento<T extends Modelo> {
   currentVideoUrl = signal<string | null>(null);
 
   toggleProject(projectId: string): void {
-    this.expandedProjectId.update((current) => (current === projectId ? null : projectId));
+    const current = this.expandedProjectId();
+
+    if (current === projectId) {
+      this.expandedProjectId.set(null);
+      return;
+    }
+
+    if (current !== null) {
+      this.expandedProjectId.set(null);
+      setTimeout(() => {
+        this.expandedProjectId.set(projectId);
+        this.scrollToCard(projectId); 
+      }, 50);
+    } else {
+      this.expandedProjectId.set(projectId);
+      this.scrollToCard(projectId); 
+    }
   }
+
+scrollToCard(projectId: string): void {
+  setTimeout(() => {
+    const element = document.getElementById(projectId);
+    if (element) {
+      const headerHeight = 90;
+      const elementTop = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementTop - headerHeight - 16,
+        behavior: 'smooth'
+      });
+    }
+  }, 220);
+}
 
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);

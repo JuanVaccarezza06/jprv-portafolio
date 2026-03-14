@@ -30,18 +30,28 @@
         >
           Inicio
         </button>
+
+        <button
+          (click)="scrollToSection('servicios')"
+          class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
+        >
+          Servicios
+        </button>
+
         <button
           (click)="scrollToSection('proyectos')"
           class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
         >
           Proyectos
         </button>
+
         <button
           (click)="scrollToSection('sobre-mi')"
           class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
         >
           Sobre Mí
         </button>
+
         <button
           (click)="scrollToSection('contacto')"
           class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
@@ -184,6 +194,290 @@
       <span class="text-slate-400 animate-bounce mt-6" aria-hidden="true">↓</span>
     </section>
 
+    <!-- ── SERVICIOS ── -->
+    <section
+      id="servicios"
+      class="flex flex-col items-center px-4 pb-24"
+      aria-labelledby="servicios-heading"
+    >
+      <div class="w-full max-w-4xl">
+        <!-- Label + Heading -->
+        <p class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-4">Servicios</p>
+        <h2
+          id="servicios-heading"
+          class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight"
+        >
+          ¿Le falta personalidad a <br />
+          tu negocio? <span class="text-blue-600">Yo te ayudo.</span>
+        </h2>
+        <p class="text-slate-500 text-base max-w-xl mb-14 leading-relaxed">
+          Cada línea de código que escribo tiene un propósito: hacer que tu idea cobre vida y que tu
+          negocio destaque.
+          <span class="text-blue-600 font-medium"
+            >Sin plantillas genéricas, sin soluciones a medias.</span
+          >
+        </p>
+
+        <!-- Grid de tarjetas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-14">
+          <!-- Desarrollo Web (destacada) -->
+          <article
+            class="bg-white border-2 border-slate-200 rounded-2xl p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group relative"
+          >
+            <div class="flex items-start justify-between">
+              <div
+                class="w-12 h-12 rounded-xl bg-slate-100 text-blue-600 flex items-center justify-center border border-slate-200"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Desarrollo Web</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                Aplicaciones web modernas y responsivas con Angular, React y tecnologías de
+                vanguardia. Interfaces que enamoran.
+              </p>
+            </div>
+
+            <ul class="flex flex-wrap gap-2 list-none m-0 p-0 mt-auto">
+              <li>
+                <span
+                  class="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full border border-blue-200"
+                  >Single Page Apps</span
+                >
+              </li>
+              <li>
+                <span
+                  class="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full border border-blue-200"
+                  >Dashboards</span
+                >
+              </li>
+              <li>
+                <span
+                  class="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full border border-blue-200"
+                  >E-commerce</span
+                >
+              </li>
+            </ul>
+          </article>
+
+          <!-- Software a Medida -->
+          <article
+            class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group"
+            aria-label="Servicio: Software a Medida"
+          >
+            <div class="flex items-start justify-between">
+              <div
+                class="w-12 h-12 rounded-xl bg-slate-100 text-blue-600 flex items-center justify-center border border-slate-200"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Software a Medida</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                Soluciones de escritorio robustas en Java y C. Sistemas que resuelven problemas
+                reales de tu negocio.
+              </p>
+            </div>
+
+            <ul class="flex flex-wrap gap-2 list-none m-0 p-0 mt-auto">
+              <li>
+                <span
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Gestión empresarial</span
+                >
+              </li>
+              <li>
+                <span
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Automatización</span
+                >
+              </li>
+              <li>
+                <span
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Integración de sistemas</span
+                >
+              </li>
+            </ul>
+          </article>
+
+          <!-- Mantenimiento -->
+          <article
+            class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group"
+            aria-label="Servicio: Mantenimiento"
+          >
+            <div class="flex items-start justify-between">
+              <div
+                class="w-12 h-12 rounded-xl bg-slate-100 text-blue-600 flex items-center justify-center border border-slate-200"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Mantenimiento</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                Tu código legacy merece amor. Refactorización, optimización y documentación para que
+                tu sistema respire.
+              </p>
+            </div>
+
+            <ul class="flex flex-wrap gap-2 list-none m-0 p-0 mt-auto">
+              <li>
+                <span
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Refactoring</span
+                >
+              </li>
+              <li>
+                <span
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Performance</span
+                >
+              </li>
+              <li>
+                <span
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Documentación</span
+                >
+              </li>
+            </ul>
+          </article>
+
+          <!-- Consultoría Técnica -->
+          <article
+            class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group"
+            aria-label="Servicio: Consultoría Técnica"
+          >
+            <div class="flex items-start justify-between">
+              <div
+                class="w-12 h-12 rounded-xl bg-slate-100 text-blue-600 flex items-center justify-center border border-slate-200"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 16v-4M12 8h.01" />
+                </svg>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Consultoría Técnica</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                ¿No sabés por dónde empezar? Te ayudo a definir la arquitectura y el stack
+                tecnológico ideal para tu proyecto.
+              </p>
+            </div>
+
+            <ul class="flex flex-wrap gap-2 list-none m-0 p-0 mt-auto">
+              <li>
+                <span
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Análisis de requerimientos</span
+                >
+              </li>
+              <li>
+                <span
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Arquitectura</span
+                >
+              </li>
+              <li>
+                <span
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Mentoría</span
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- CTA inferior -->
+        <div class="flex flex-col items-center gap-4">
+          <p class="text-slate-500 text-sm">¿Tenés un proyecto en mente? Hablemos.</p>
+          <button
+            (click)="scrollToSection('contacto')"
+            class="flex items-center gap-2 bg-blue-600 text-white px-7 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm"
+          >
+            Contactar
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- ── FIN SERVICIOS ── -->
+
     <section
       id="proyectos"
       class="flex flex-col items-center px-4"
@@ -202,6 +496,7 @@
           <div class="flex flex-col gap-6">
             @for (project of projects; track project.id) {
               <article
+                [id]="project.id"
                 class="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col hover:shadow-md hover:border-blue-200 transition-all group"
               >
                 <div
@@ -241,7 +536,6 @@
                       }
                     </ul>
 
-                    <!-- Chevron -->
                     <svg
                       [class.rotate-180]="expandedProjectId() === project.id"
                       class="text-slate-400 group-hover:text-blue-600 transition-transform duration-300 hidden md:block flex-shrink-0"
@@ -261,12 +555,14 @@
                   </div>
                 </div>
 
-                <!-- ── Detalle expandido ── -->
-                @if (expandedProjectId() === project.id) {
+                <div
+                  class="overflow-hidden transition-all duration-300 ease-in-out"
+                  [style.maxHeight]="expandedProjectId() === project.id ? '2000px' : '0px'"
+                  [style.opacity]="expandedProjectId() === project.id ? '1' : '0'"
+                >
                   <div
-                    class="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in"
+                    class="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-2 gap-8"
                   >
-                    <!-- Columna izquierda -->
                     <div class="flex flex-col">
                       <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">
                         La Historia del Proyecto
@@ -278,7 +574,6 @@
                         }
                       </div>
 
-                      <!-- Hitos -->
                       <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">
                         Hitos
                       </h4>
@@ -288,7 +583,6 @@
                         }
                       </ul>
 
-                      <!-- Stack completo (technologies) -->
                       <ul
                         class="flex flex-wrap gap-2 mb-6 list-none m-0 p-0"
                         aria-label="Stack tecnológico completo"
@@ -304,7 +598,6 @@
                         }
                       </ul>
 
-                      <!-- Links -->
                       <div class="flex gap-4 mb-6">
                         @if (project.githubLink) {
                           <a
@@ -364,7 +657,6 @@
                         }
                       </div>
 
-                      <!-- Video preview -->
                       @if (project.videoUrl) {
                         <figure
                           class="w-full h-48 rounded-xl overflow-hidden border border-slate-200 shadow-sm relative group m-0 cursor-pointer"
@@ -403,7 +695,6 @@
                       }
                     </div>
 
-                    <!-- Columna derecha: código -->
                     <div class="flex flex-col">
                       <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">
                         El Código
@@ -415,7 +706,6 @@
                         <div
                           class="bg-[#1e1e2e] rounded-xl overflow-hidden shadow-lg border border-slate-800 flex flex-col min-h-[300px]"
                         >
-                          <!-- Barra de título de la terminal -->
                           <div
                             class="bg-[#181825] px-4 py-3 flex items-center gap-2 border-b border-white/10"
                             aria-hidden="true"
@@ -437,7 +727,7 @@
                       </figure>
                     </div>
                   </div>
-                }
+                </div>
               </article>
             }
           </div>
@@ -562,7 +852,6 @@
     </p>
   </footer>
 
-  <!-- ✅ Modal aquí afuera, hijo directo del div raíz, sin ningún padre con transform -->
   @if (isVideoModalOpen()) {
     <div
       class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
