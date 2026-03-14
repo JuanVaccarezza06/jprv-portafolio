@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './components/app-component/app-component';
+import { ProjectsSectionComponent } from './components/app-component/projects-section-component';
 
 export const routes: Routes = [
   {
-    path: '', component: AppComponent 
+    path: '', component: ProjectsSectionComponent 
   },
   {
     path: '**',

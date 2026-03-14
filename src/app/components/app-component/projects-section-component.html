@@ -1,0 +1,603 @@
+<div
+  class="bg-[#eef2fa] min-h-screen text-slate-900 font-sans selection:bg-blue-200 selection:text-blue-900"
+>
+  <header
+    class="fixed top-0 w-full z-50 border-b border-slate-300 bg-[#eef2fa]/80 backdrop-blur-md"
+    role="banner"
+  >
+    <div class="mx-auto grid grid-cols-3 h-20 max-w-7xl items-center px-6">
+      <button
+        (click)="scrollToSection('inicio')"
+        class="group flex flex-col justify-center items-start cursor-pointer bg-transparent border-none p-0"
+      >
+        <span
+          class="text-lg font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors"
+        >
+          Juan Pablo Vaccarezza
+        </span>
+        <span class="text-xs font-medium text-slate-500 tracking-wide">
+          Desarrollador de Software | Técnico Universitario
+        </span>
+      </button>
+
+      <nav
+        class="hidden md:flex items-center justify-center gap-8"
+        aria-label="Navegación principal"
+      >
+        <button
+          (click)="scrollToSection('inicio')"
+          class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
+        >
+          Inicio
+        </button>
+        <button
+          (click)="scrollToSection('proyectos')"
+          class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
+        >
+          Proyectos
+        </button>
+        <button
+          (click)="scrollToSection('sobre-mi')"
+          class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
+        >
+          Sobre Mí
+        </button>
+        <button
+          (click)="scrollToSection('contacto')"
+          class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
+        >
+          Contacto
+        </button>
+      </nav>
+
+      <ul
+        class="flex items-center gap-2 list-none m-0 p-0 justify-center"
+        aria-label="Redes sociales"
+      >
+        <li>
+          <a
+            href="https://github.com/tu-usuario"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
+            aria-label="Perfil de GitHub de Juan Pablo Vaccarezza"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5"
+              aria-hidden="true"
+            >
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+              />
+              <path d="M9 18c-4.51 2-5-2-7-2" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://linkedin.com/in/tu-usuario"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
+            aria-label="Perfil de LinkedIn de Juan Pablo Vaccarezza"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5"
+              aria-hidden="true"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:jpvaccarezza@example.com"
+            class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
+            aria-label="Enviar email a Juan Pablo Vaccarezza"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5"
+              aria-hidden="true"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl">
+    <section
+      id="inicio"
+      class="min-h-[75vh] flex flex-col justify-center items-center text-center px-4 pt-32"
+      aria-labelledby="hero-heading"
+    >
+      <div
+        class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white border border-slate-200 mb-8 text-blue-600 font-mono font-bold shadow-sm"
+        aria-hidden="true"
+      >
+        &lt;/&gt;
+      </div>
+
+      <h1
+        id="hero-heading"
+        class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-slate-900"
+      >
+        Desarrollo de software <br />
+        <span class="text-blue-600">personalizado</span> para tu negocio
+      </h1>
+
+      <p class="text-slate-600 max-w-2xl text-lg mb-10 leading-relaxed">
+        Técnico Universitario en Programación especializado en desarrollo web <br />
+        y en ingeniería de software. Transformo requisitos complejos en soluciones <br />
+        robustas y mantenibles con tecnologías modernas.
+      </p>
+
+      <div class="flex gap-4 mb-12">
+        <button
+          class="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm"
+          (click)="scrollToSection('proyectos')"
+        >
+          Ver Proyectos
+        </button>
+        <button
+          class="bg-white text-slate-900 px-6 py-2.5 rounded-lg font-medium border border-slate-300 hover:bg-slate-50 hover:text-blue-600 transition-colors shadow-sm"
+          (click)="scrollToSection('contacto')"
+        >
+          Contactar
+        </button>
+      </div>
+
+      <span class="text-slate-400 animate-bounce mt-6" aria-hidden="true">↓</span>
+    </section>
+
+    <section
+      id="proyectos"
+      class="flex flex-col items-center px-4"
+      aria-labelledby="proyectos-heading"
+    >
+      <h2 id="proyectos-heading" class="text-3xl font-bold mb-4 text-slate-900">
+        Proyectos Destacados
+      </h2>
+      <p class="text-slate-500 text-center max-w-xl mb-10">
+        Una selección de proyectos que demuestran mis habilidades en diferentes tecnologías y
+        dominios. Haz clic en cada tarjeta para explorar los detalles.
+      </p>
+
+      <ol class="w-full max-w-4xl flex flex-col gap-4 list-none p-0 m-0">
+        <li>
+          <div class="flex flex-col gap-6">
+            @for (project of projects; track project.id) {
+              <article
+                class="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col hover:shadow-md hover:border-blue-200 transition-all group"
+              >
+                <div
+                  class="flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer"
+                  (click)="toggleProject(project.id)"
+                >
+                  <div class="flex items-center gap-5 min-w-0 flex-1">
+                    <div
+                      class="w-12 h-12 flex-shrink-0 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-slate-200"
+                    >
+                      <app-icon-component [name]="project.id"></app-icon-component>
+                    </div>
+
+                    <div class="min-w-0">
+                      <h3
+                        class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors"
+                      >
+                        {{ project.title }}
+                      </h3>
+                      <p class="text-slate-500 text-sm mt-1">{{ project.intro }}</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center gap-4 flex-shrink-0">
+                    <ul
+                      class="flex flex-wrap gap-2 list-none m-0 p-0"
+                      aria-label="Tecnologías principales"
+                    >
+                      @for (tech of project.stack; track tech) {
+                        <li>
+                          <span
+                            class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
+                          >
+                            {{ tech }}
+                          </span>
+                        </li>
+                      }
+                    </ul>
+
+                    <!-- Chevron -->
+                    <svg
+                      [class.rotate-180]="expandedProjectId() === project.id"
+                      class="text-slate-400 group-hover:text-blue-600 transition-transform duration-300 hidden md:block flex-shrink-0"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- ── Detalle expandido ── -->
+                @if (expandedProjectId() === project.id) {
+                  <div
+                    class="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in"
+                  >
+                    <!-- Columna izquierda -->
+                    <div class="flex flex-col">
+                      <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">
+                        La Historia del Proyecto
+                      </h4>
+
+                      <div class="text-slate-600 text-sm leading-relaxed mb-6 space-y-3">
+                        @for (paragraph of project.story; track $index) {
+                          <p [innerHTML]="paragraph"></p>
+                        }
+                      </div>
+
+                      <!-- Hitos -->
+                      <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">
+                        Hitos
+                      </h4>
+                      <ul class="list-disc list-inside text-slate-600 text-sm space-y-2 mb-6">
+                        @for (feature of project.mainFeatures; track $index) {
+                          <li>{{ feature }}</li>
+                        }
+                      </ul>
+
+                      <!-- Stack completo (technologies) -->
+                      <ul
+                        class="flex flex-wrap gap-2 mb-6 list-none m-0 p-0"
+                        aria-label="Stack tecnológico completo"
+                      >
+                        @for (tech of project.technologies; track tech) {
+                          <li>
+                            <span
+                              class="border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-md"
+                            >
+                              {{ tech }}
+                            </span>
+                          </li>
+                        }
+                      </ul>
+
+                      <!-- Links -->
+                      <div class="flex gap-4 mb-6">
+                        @if (project.githubLink) {
+                          <a
+                            [href]="project.githubLink"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                            [attr.aria-label]="'Ver repositorio de ' + project.title + ' en GitHub'"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                              />
+                              <path d="M9 18c-4.51 2-5-2-7-2" />
+                            </svg>
+                            Ver en GitHub
+                          </a>
+                        }
+
+                        @if (project.demoLink) {
+                          <a
+                            [href]="project.demoLink"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                            [attr.aria-label]="'Ver demo en vivo de ' + project.title"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              aria-hidden="true"
+                            >
+                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                              <polyline points="15 3 21 3 21 9" />
+                              <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                            Ver Demo
+                          </a>
+                        }
+                      </div>
+
+                      <!-- Video preview -->
+                      @if (project.videoUrl) {
+                        <figure
+                          class="w-full h-48 rounded-xl overflow-hidden border border-slate-200 shadow-sm relative group m-0 cursor-pointer"
+                          (click)="openVideoModal(project.videoUrl)"
+                        >
+                          <video
+                            class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            [attr.aria-label]="'Vista previa de ' + project.title"
+                          >
+                            <source [src]="project.videoUrl" type="video/mp4" />
+                          </video>
+
+                          <div
+                            class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center"
+                          >
+                            <div
+                              class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 text-blue-600"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                              >
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </figure>
+                      }
+                    </div>
+
+                    <!-- Columna derecha: código -->
+                    <div class="flex flex-col">
+                      <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">
+                        El Código
+                      </h4>
+                      <figure class="m-0">
+                        <figcaption class="sr-only">
+                          Fragmento de código de {{ project.title }} ({{ project.codeFilename }})
+                        </figcaption>
+                        <div
+                          class="bg-[#1e1e2e] rounded-xl overflow-hidden shadow-lg border border-slate-800 flex flex-col min-h-[300px]"
+                        >
+                          <!-- Barra de título de la terminal -->
+                          <div
+                            class="bg-[#181825] px-4 py-3 flex items-center gap-2 border-b border-white/10"
+                            aria-hidden="true"
+                          >
+                            <div class="flex gap-1.5">
+                              <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                              <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                              <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <span class="text-[#a6adc8] text-xs font-mono ml-4">
+                              {{ project.codeFilename }}
+                            </span>
+                          </div>
+
+                          <div class="overflow-x-auto text-sm">
+                            <pre><code [highlight]="project.code" [language]="project.codeLanguage"></code></pre>
+                          </div>
+                        </div>
+                      </figure>
+                    </div>
+                  </div>
+                }
+              </article>
+            }
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section
+      id="contacto"
+      class="flex flex-col items-center px-4 py-16 mb-8"
+      aria-labelledby="contacto-heading"
+    >
+      <h2 id="contacto-heading" class="text-3xl font-bold mb-4 text-slate-900">Contacto</h2>
+      <p class="text-slate-500 text-center max-w-xl mb-10">
+        ¿Tienes un proyecto en mente? Me encantaría escucharte. Estoy disponible <br />
+        para oportunidades freelance y colaboraciones.
+      </p>
+
+      <address
+        class="bg-white border border-slate-200 shadow-sm rounded-2xl p-8 flex flex-col items-center gap-4 w-full max-w-md not-italic"
+      >
+        <div class="text-blue-600 bg-blue-50 p-4 rounded-full" aria-hidden="true">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6"
+          >
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+        </div>
+        <div class="text-center w-full">
+          <span class="text-xs text-slate-400 font-bold tracking-widest block mb-1">EMAIL</span>
+          <a
+            href="mailto:jpvaccarezza@example.com"
+            class="block text-slate-900 font-bold text-lg hover:text-blue-600 transition-colors"
+          >
+            jpvaccarezza&#64;example.com
+          </a>
+        </div>
+
+        <ul
+          class="flex gap-4 mt-4 pt-4 border-t border-slate-100 w-full justify-center list-none m-0 p-0"
+        >
+          <li>
+            <a
+              href="https://github.com/tu-usuario"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-lg bg-slate-50 text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm border border-transparent hover:border-slate-200 transition-all"
+              aria-label="Perfil de GitHub de Juan Pablo Vaccarezza"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-5 w-5"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linkedin.com/in/tu-usuario"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-lg bg-slate-50 text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm border border-transparent hover:border-slate-200 transition-all"
+              aria-label="Perfil de LinkedIn de Juan Pablo Vaccarezza"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-5 w-5"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </address>
+    </section>
+  </main>
+
+  <footer
+    class="border-t border-slate-300 py-8 px-8 flex justify-between items-center text-sm text-slate-500 max-w-5xl mx-auto"
+    role="contentinfo"
+  >
+    <p>© 2026 Portfolio. Todos los derechos reservados.</p>
+    <p>
+      Desarrollado con <span class="text-blue-600 font-medium">Angular 20</span> y
+      <span class="text-blue-600 font-medium">Tailwind CSS</span>
+    </p>
+  </footer>
+
+  <!-- ✅ Modal aquí afuera, hijo directo del div raíz, sin ningún padre con transform -->
+  @if (isVideoModalOpen()) {
+    <div
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+      (click)="closeVideoModal()"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Video del proyecto SullivanMór"
+    >
+      <div class="relative w-full max-w-4xl mx-4" (click)="$event.stopPropagation()">
+        <button
+          (click)="closeVideoModal()"
+          class="absolute -top-10 right-0 text-white hover:text-blue-400 transition-colors"
+          aria-label="Cerrar video"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-7 w-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        <video class="w-full rounded-xl shadow-2xl" controls autoplay loop preload="auto">
+          <source src="sullivan-preview.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  }
+</div>
