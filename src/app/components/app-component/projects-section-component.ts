@@ -188,27 +188,42 @@ public class Almacenamiento<T extends Modelo> {
       this.expandedProjectId.set(null);
       setTimeout(() => {
         this.expandedProjectId.set(projectId);
-        this.scrollToCard(projectId); 
+        this.scrollToCard(projectId);
       }, 50);
     } else {
       this.expandedProjectId.set(projectId);
-      this.scrollToCard(projectId); 
+      this.scrollToCard(projectId);
     }
   }
 
-scrollToCard(projectId: string): void {
-  setTimeout(() => {
-    const element = document.getElementById(projectId);
-    if (element) {
-      const headerHeight = 90;
-      const elementTop = element.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: elementTop - headerHeight - 16,
-        behavior: 'smooth'
-      });
-    }
-  }, 220);
-}
+  scrollToCard(projectId: string): void {
+    setTimeout(() => {
+      const element = document.getElementById(projectId);
+      if (element) {
+        const headerHeight = 90;
+        const elementTop = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementTop - headerHeight - 16,
+          behavior: 'smooth',
+        });
+      }
+    }, 220);
+  }
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // fires only once
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  }
 
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);

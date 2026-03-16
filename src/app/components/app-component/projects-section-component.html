@@ -195,7 +195,7 @@
     </section>
 
     <!-- ── BANNER SEGURIDAD ── -->
-    <div class="px-4 pb-8 mb-4 mt-2" role="note" aria-label="Compromiso de seguridad">
+    <div class="px-4 pb-8 mb-4 mt-2 reveal" role="note" aria-label="Compromiso de seguridad">
       <div
         class="max-w-5xl mx-auto bg-white border border-slate-200 border-l-4 border-l-blue-600 rounded-2xl px-8 py-8 flex flex-col gap-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(37,99,235,0.1)] hover:border-slate-300"
       >
@@ -298,7 +298,7 @@
 
     <section
       id="servicios"
-      class="flex flex-col items-center px-4 pb-8"
+      class="flex flex-col items-center px-4 pb-8 reveal"
       aria-labelledby="servicios-heading"
     >
       <div class="w-full max-w-4xl">
@@ -320,7 +320,7 @@
         </p>
 
         <!-- Grid de tarjetas -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-14">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-14 reveal">
           <!-- Desarrollo Web (destacada) -->
           <article
             class="bg-white border-2 border-slate-200 rounded-2xl p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group relative"
@@ -582,7 +582,7 @@
 
     <section
       id="proyectos"
-      class="flex flex-col items-center px-4"
+      class="flex flex-col items-center px-4 reveal"
       aria-labelledby="proyectos-heading"
     >
       <h2 id="proyectos-heading" class="text-3xl font-bold mb-4 text-slate-900">
@@ -595,7 +595,7 @@
 
       <ol class="w-full max-w-4xl flex flex-col gap-4 list-none p-0 m-0">
         <li>
-          <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-6 reveal" >
             @for (project of projects; track project.id) {
               <article
                 [id]="project.id"
@@ -839,7 +839,7 @@
 
     <section
       id="contacto"
-      class="flex flex-col items-center px-4 py-16 mb-8"
+      class="flex flex-col items-center px-4 py-16 mb-8 reveal" 
       aria-labelledby="contacto-heading"
     >
       <h2 id="contacto-heading" class="text-3xl font-bold mb-4 text-slate-900">Contacto</h2>
@@ -849,7 +849,7 @@
       </p>
 
       <address
-        class="bg-white border border-slate-200 shadow-sm rounded-2xl p-8 flex flex-col items-center gap-4 w-full max-w-md not-italic"
+        class="reveal bg-white border border-slate-200 shadow-sm rounded-2xl p-8 flex flex-col items-center gap-4 w-full max-w-md not-italic"
       >
         <div class="text-blue-600 bg-blue-50 p-4 rounded-full" aria-hidden="true">
           <svg
