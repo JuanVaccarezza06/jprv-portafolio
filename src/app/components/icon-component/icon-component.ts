@@ -38,6 +38,15 @@ import { Component, Input } from '@angular/core';
           ></path>
         </svg>
       }
+      @case ('smart-sheet-reporter') {
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M13 2H6C4.895 2 4 2.895 4 4V20C4 21.105 4.895 22 6 22H18C19.105 22 20 21.105 20 20V9L13 2ZM13 3.5V9H18.5L13 3.5ZM10.5 19L14 13H11.5V10L8 16H10.5V19Z"
+          ></path>
+        </svg>
+      }
       @default {
         <svg>...</svg>
       }

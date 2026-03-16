@@ -18,7 +18,7 @@ export class ProjectsSectionComponent {
       story: [
         '<strong>SullivanMór</strong> surgió como una solución estratégica para establecer un canal de ventas digital exclusivo. La iniciativa buscaba profesionalizar la exhibición de inmuebles, migrando de una dependencia de plataformas de terceros hacia un ecosistema propio con control total sobre la información.',
         'Comenzó como una landing page simple para mostrar propiedades y recibir consultas. Con el tiempo, evolucionó hacia un CMS (Sistema de Gestión de Contenidos) a medida, permitiendo administrar directamente las propiedades publicadas, los filtros de búsqueda, textos del sitio y formularios de contacto.',
-        'Hoy en día representa una plataforma administrativa completa enfocada en optimizar la gestión inmobiliaria diaria.',
+        'Hoy en día representa una plataforma administrativa completa enfocada en optimizar la gestión inmobiliaria diaria. Actualmente, el sistema se encuentra en fase beta, operando con datos mock (simulados) a modo de demostración para exhibir todo el potencial y las funcionalidades de la plataforma.',
       ],
       mainFeatures: [
         'Sistema de roles y permisos de usuario',
@@ -32,7 +32,7 @@ export class ProjectsSectionComponent {
       codeFilename: 'filter.service.ts',
       codeLanguage: 'typescript',
       demoLink: '',
-      videoUrl: 'sullivan-preview.mp4',
+      videoUrl: 'sullivanmor-preview.mp4',
       code: `import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime, switchMap, shareReplay } from 'rxjs/operators';
@@ -54,6 +54,60 @@ export class FilterService {
 }`,
     },
     {
+      id: 'smart-sheet-reporter',
+      title: 'Smart Sheet Reporter',
+      intro:
+        'Aplicación web full-stack para el procesamiento dinámico de archivos Excel y la generación automatizada de reportes mediante plantillas.',
+      story: [
+        '<strong>Smart Sheet Reporter</strong> fue desarrollado para transformar datos tabulares en documentos estructurados y listos para descargar. En este sistema, el Excel funciona como una base de datos: cada fila contiene la información necesaria para crear un documento, como puede ser una factura comercial, un reporte o un certificado.',
+        'La plataforma cuenta con una interfaz fluida construida en Angular, que se comunica con un robusto backend en Java. El proceso es muy intuitivo: al cargar los datos, el motor del sistema lee el archivo en memoria y relaciona dinámicamente las columnas del Excel con palabras clave o campos definidos previamente en una plantilla de diseño.',
+        'De esta forma, el sistema procesa la información de forma instantánea para generar documentos individuales, empaquetándolos en un archivo ZIP. La mayor fortaleza de esta arquitectura es su lógica altamente reutilizable: basta con agregar las reglas de tu negocio a los documentos origen, y el sistema se adaptara fácilmente a diferentes contextos de negocio sin necesidad de modificar el código.',
+      ],
+      mainFeatures: [
+        'Lectura y parseo dinámico de archivos Excel (.xlsx)',
+        'Generación automatizada de documentos a partir de plantillas',
+        'Empaquetado y descarga de reportes en archivos ZIP',
+        'Interfaz de usuario moderna e intuitiva',
+      ],
+      stack: ['Java', 'Angular 20', 'TypeScript'],
+      technologies: ['Apache POI', 'Tailwind CSS', 'Manejo de Memoria'],
+      githubLink: 'https://github.com/juanvaccarezza06/smart-sheet-reporter',
+      codeFilename: 'ExcelUtils.java',
+      codeLanguage: 'java',
+      demoLink: '',
+      videoUrl: 'smart-sheet-reporter-preview.mp4',
+      code: `package com.smart_sheet.smart_sheet;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.InputStream;
+import java.util.*;
+
+public class ExcelUtils {
+
+    public static List<DataRow> readExcel(InputStream is) throws Exception {
+        List<DataRow> rows = new ArrayList<>();
+        List<String> headers = new ArrayList<>();
+        DataFormatter formatter = new DataFormatter();
+
+        try (Workbook workbook = new XSSFWorkbook(is)) {
+            for (Row row : workbook.getSheetAt(0)) {
+                if (headers.isEmpty()) {
+                    row.forEach(cell -> headers.add(formatter.formatCellValue(cell).trim()));
+                } else {
+                    Map<String, String> rowData = new HashMap<>();
+                    for (int i = 0; i < headers.size(); i++) {
+                        rowData.put(headers.get(i), formatter.formatCellValue(row.getCell(i)));
+                    }
+                    rows.add(new DataRow(rowData));
+                }
+            }
+        }
+        return rows;
+    }
+}`,
+    },
+    {
       id: 'beach-resort-system',
       title: 'Sistema de Gestión de Balneario',
       intro:
@@ -61,7 +115,7 @@ export class FilterService {
       story: [
         '<strong>Sistema de Gestión de Balneario</strong> fue desarrollado como Trabajo Final para la materia Programación II, con el objetivo de aplicar conceptos avanzados de Programación Orientada a Objetos en un caso de uso real y complejo.',
         'La plataforma fue diseñada para gestionar el día a día de un complejo de playa, resolviendo la asignación de carpas, sombrillas y cocheras, así como el control de los empleados, puestos comerciales y atención médica.',
-        'A nivel técnico, destaca por prescindir de bases de datos relacionales estándar en favor de un sistema de almacenamiento y persistencia propio basado en archivos JSON, implementando clases genéricas para un manejo dinámico y eficiente de las colecciones de datos.',
+        'A nivel técnico, destaca por prescindir de bases de datos relacionales estándar en favor de un sistema de almacenamiento y persistencia propio basado en archivos JSON, implementando clases genéricas para un manejo dinámico y eficiente de las colecciones de datos. Los invito a analizar su codigo disponible en su repositorio.',
       ],
       mainFeatures: [
         'Gestión integral de reservas y contratos',
@@ -76,7 +130,7 @@ export class FilterService {
       codeFilename: 'Almacenamiento.java',
       codeLanguage: 'java',
       demoLink: '',
-      videoUrl: '',
+      videoUrl: 'beach-resort-preview.mp4',
       code: `package PackageGenerico;
 
 import PackageAbstract.Modelo;
@@ -114,62 +168,9 @@ public class Almacenamiento<T extends Modelo> {
     }
 }`,
     },
-    {
-      id: 'crud-in-c',
-      title: 'Sistema de Gestión de Vuelos',
-      intro:
-        'Sistema interactivo por consola en C para la gestión de vuelos y pasajeros, enfocado en el manejo de memoria dinámica y archivos binarios.',
-      story: [
-        '<strong>CRUD-in-C</strong> fue desarrollado con el objetivo de practicar y demostrar el uso de conceptos avanzados del lenguaje C, aplicados a un caso de gestión de aerolíneas.',
-        'La plataforma permite administrar un sistema de vuelos a través de menús interactivos, resolviendo el alta, baja, actualización y búsqueda de vuelos, así como el control de los pasajeros asignados a cada avión.',
-        'A nivel técnico, el proyecto destaca por su sistema de persistencia local de datos empleando archivos binarios (`fread`, `fwrite`, `fseek`) y una gestión eficiente de la memoria a través de punteros (simples y dobles) y arreglos dinámicos utilizando `malloc` y `realloc`.',
-      ],
-      mainFeatures: [
-        'Sistema CRUD integral para la gestión de vuelos y pasajeros',
-        'Persistencia de datos local mediante archivos binarios',
-        'Gestión de memoria dinámica empleando punteros dobles',
-        'Arquitectura modular basada en structs y funcionalidades',
-      ],
-      stack: ['C', 'Archivos binarios'],
-      technologies: ['Punteros', 'Memoria Dinámica', 'Estructuras anidadas'],
-      githubLink: 'https://github.com/juanvaccarezza06/crud-in-c',
-      codeFilename: 'main.c',
-      codeLanguage: 'c',
-      demoLink: '',
-      videoUrl: '',
-      code: `int transferirArchivoHaciaArreglo(char nombreArchivo[],stFlight** arr,int* dimensionArreglo)
-{
-    FILE* archi;
-    archi = fopen (nombreArchivo, "rb");
-    if(!archi)
-    {
-        perror("Error al abrir el archivo.");
-        return -1;
-    }
-
-    int validos = 0;
-    while (fread(&(*arr)[validos], sizeof(stFlight), 1, archi) == 1)
-    {
-        validos++;
-
-        if (validos == *dimensionArreglo)
-        {
-            stFlight* tmp = realizarRealloc(*arr, (*dimensionArreglo += INCREMENTO));
-            if (!tmp)
-            {
-                perror("Realloc fallido. 'transferirArchivoHaciaArreglo'");
-                fclose(archi);
-                return -1;
-            }
-            *arr = tmp;
-        }
-    }
-
-    fclose(archi);
-    return validos;
-}`,
-    },
   ];
+
+  email: string = "juanpirvaccarezza@gmail.com"
 
   expandedProjectId = signal<string | null>(null);
   isVideoModalOpen = signal(false);

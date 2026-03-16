@@ -123,7 +123,7 @@
         </li>
         <li>
           <a
-            href="mailto:jpvaccarezza@example.com"
+            href="mailto:{{ email }}"
             class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
             aria-label="Enviar email a Juan Pablo Vaccarezza"
           >
@@ -149,7 +149,7 @@
     </div>
   </header>
 
-  <main class="mx-auto max-w-5xl">
+  <main class="mx-auto max-w-5xl reveal">
     <section
       id="inicio"
       class="min-h-[70vh] flex flex-col justify-center items-center text-center px-4 pt-32"
@@ -231,10 +231,10 @@
               Seguridad en cada línea de código
             </h3>
             <p class="text-slate-500 text-sm leading-relaxed m-0">
-              Actualmente estudiando
-              <strong class="text-blue-600 font-semibold">Ciberseguridad</strong>. Cada proyecto que
-              desarrollo considera las mejores prácticas de seguridad desde el diseño. Tu código,
-              tus datos y tus usuarios están protegidos.
+              Como proximo diplomado en
+              <strong class="text-blue-600 font-semibold">Ciberseguridad</strong> garantizo en cada
+              proyecto que desarrollo, las mejores prácticas de seguridad desde el diseño. Tu
+              código, tus datos y tus usuarios están protegidos.
             </p>
           </div>
         </div>
@@ -308,7 +308,7 @@
           id="servicios-heading"
           class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight"
         >
-          ¿Le falta personalidad a <br />
+          ¿Necesitas profesionalizar<br />
           tu negocio? <span class="text-blue-600">Yo te ayudo.</span>
         </h2>
         <p class="text-slate-500 text-base max-w-xl mb-14 leading-relaxed">
@@ -358,19 +358,19 @@
             <ul class="flex flex-wrap gap-2 list-none m-0 p-0 mt-auto">
               <li>
                 <span
-                  class="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full border border-blue-200"
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
                   >Single Page Apps</span
                 >
               </li>
               <li>
                 <span
-                  class="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full border border-blue-200"
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
                   >Dashboards</span
                 >
               </li>
               <li>
                 <span
-                  class="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full border border-blue-200"
+                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
                   >E-commerce</span
                 >
               </li>
@@ -407,8 +407,8 @@
             <div>
               <h3 class="text-lg font-bold text-slate-900 mb-2">Software a Medida</h3>
               <p class="text-slate-500 text-sm leading-relaxed">
-                Soluciones de escritorio robustas en Java y C. Sistemas que resuelven problemas
-                reales de tu negocio.
+                Soluciones de escritorio robustas en Java. Sistemas que resuelven problemas reales
+                de tu negocio.
               </p>
             </div>
 
@@ -578,7 +578,6 @@
       </div>
     </section>
     <!-- ── FIN SERVICIOS ── -->
- 
 
     <section
       id="proyectos"
@@ -595,7 +594,7 @@
 
       <ol class="w-full max-w-4xl flex flex-col gap-4 list-none p-0 m-0">
         <li>
-          <div class="flex flex-col gap-6 reveal" >
+          <div class="flex flex-col gap-6 reveal">
             @for (project of projects; track project.id) {
               <article
                 [id]="project.id"
@@ -839,7 +838,7 @@
 
     <section
       id="contacto"
-      class="flex flex-col items-center px-4 py-16 mb-8 reveal" 
+      class="flex flex-col items-center px-4 py-16 mb-8 reveal"
       aria-labelledby="contacto-heading"
     >
       <h2 id="contacto-heading" class="text-3xl font-bold mb-4 text-slate-900">Contacto</h2>
@@ -871,10 +870,10 @@
         <div class="text-center w-full">
           <span class="text-xs text-slate-400 font-bold tracking-widest block mb-1">EMAIL</span>
           <a
-            href="mailto:jpvaccarezza@example.com"
+            href="mailto:{{ email }}"
             class="block text-slate-900 font-bold text-lg hover:text-blue-600 transition-colors"
           >
-            jpvaccarezza&#64;example.com
+            {{email}}
           </a>
         </div>
 
@@ -985,9 +984,16 @@
           </svg>
         </button>
 
-        <video class="w-full rounded-xl shadow-2xl" controls autoplay loop preload="auto">
-          <source src="sullivan-preview.mp4" type="video/mp4" />
-        </video>
+        <video
+          class="w-full rounded-xl shadow-2xl"
+          controls
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
+          [src]="currentVideoUrl()"
+        ></video>
       </div>
     </div>
   }
