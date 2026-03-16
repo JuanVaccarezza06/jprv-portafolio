@@ -152,7 +152,7 @@
   <main class="mx-auto max-w-5xl">
     <section
       id="inicio"
-      class="min-h-[75vh] flex flex-col justify-center items-center text-center px-4 pt-32"
+      class="min-h-[70vh] flex flex-col justify-center items-center text-center px-4 pt-32"
       aria-labelledby="hero-heading"
     >
       <div
@@ -191,13 +191,114 @@
         </button>
       </div>
 
-      <span class="text-slate-400 animate-bounce mt-6" aria-hidden="true">↓</span>
+      <span class="text-slate-400 animate-bounce mt-2" aria-hidden="true">↓</span>
     </section>
 
-    <!-- ── SERVICIOS ── -->
+    <!-- ── BANNER SEGURIDAD ── -->
+    <div class="px-4 pb-8 mb-4 mt-2" role="note" aria-label="Compromiso de seguridad">
+      <div
+        class="max-w-5xl mx-auto bg-white border border-slate-200 border-l-4 border-l-blue-600 rounded-2xl px-8 py-8 flex flex-col gap-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(37,99,235,0.1)] hover:border-slate-300"
+      >
+        <!-- Top: ícono + texto -->
+        <div class="flex items-start gap-6">
+          <!-- Ícono grande -->
+          <div
+            class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center animate-shield-pulse"
+            aria-hidden="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </div>
+
+          <!-- Texto -->
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-2">
+              Compromiso de seguridad
+            </p>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">
+              Seguridad en cada línea de código
+            </h3>
+            <p class="text-slate-500 text-sm leading-relaxed m-0">
+              Actualmente estudiando
+              <strong class="text-blue-600 font-semibold">Ciberseguridad</strong>. Cada proyecto que
+              desarrollo considera las mejores prácticas de seguridad desde el diseño. Tu código,
+              tus datos y tus usuarios están protegidos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="border-slate-100 m-0" />
+
+        <!-- Pills -->
+        <ul
+          class="flex flex-wrap gap-3 list-none m-0 p-0"
+          aria-label="Prácticas de seguridad aplicadas"
+        >
+          <li>
+            <span
+              class="flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-4 py-2 rounded-full"
+            >
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
+                aria-hidden="true"
+              ></span>
+              Código seguro · OWASP Top 10
+            </span>
+          </li>
+          <li>
+            <span
+              class="flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-4 py-2 rounded-full"
+            >
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
+                aria-hidden="true"
+              ></span>
+              Cifrado en tránsito y reposo
+            </span>
+          </li>
+          <li>
+            <span
+              class="flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-4 py-2 rounded-full"
+            >
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
+                aria-hidden="true"
+              ></span>
+              Autenticación segura
+            </span>
+          </li>
+          <li>
+            <span
+              class="flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-4 py-2 rounded-full"
+            >
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
+                aria-hidden="true"
+              ></span>
+              Principio de mínimo privilegio
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- ── FIN BANNER SEGURIDAD ── -->
+
     <section
       id="servicios"
-      class="flex flex-col items-center px-4 pb-24"
+      class="flex flex-col items-center px-4 pb-8"
       aria-labelledby="servicios-heading"
     >
       <div class="w-full max-w-4xl">
@@ -477,6 +578,7 @@
       </div>
     </section>
     <!-- ── FIN SERVICIOS ── -->
+ 
 
     <section
       id="proyectos"
