@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, signal, AfterViewInit } from '@angular/core';
 import Project from '../../models/Project';
 import { IconComponent } from '../icon-component/icon-component';
 import { HighlightModule } from 'ngx-highlightjs';
@@ -9,7 +9,7 @@ import { HighlightModule } from 'ngx-highlightjs';
   templateUrl: './projects-section-component.html',
   styleUrl: './projects-section-component.css',
 })
-export class ProjectsSectionComponent {
+export class ProjectsSectionComponent implements AfterViewInit {
   projects: Project[] = [
     {
       id: 'sullivan',
@@ -170,14 +170,18 @@ public class Almacenamiento<T extends Modelo> {
     },
   ];
 
-  email: string = "juanpirvaccarezza@gmail.com"
-  github: string = "https://github.com/JuanVaccarezza06"
-  linkedin: string = "https://www.linkedin.com/in/juan-pablo-vaccarezza-ab2719263/"
+  email: string = 'juanpirvaccarezza@gmail.com';
+  github: string = 'https://github.com/JuanVaccarezza06';
+  linkedin: string = 'https://www.linkedin.com/in/juan-pablo-vaccarezza-ab2719263/';
 
   expandedProjectId = signal<string | null>(null);
   isVideoModalOpen = signal(false);
-
   currentVideoUrl = signal<string | null>(null);
+  mobileMenuOpen = signal(false);
+
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen.update((v) => !v);
+  }
 
   toggleProject(projectId: string): void {
     const current = this.expandedProjectId();
@@ -212,13 +216,14 @@ public class Almacenamiento<T extends Modelo> {
       }
     }, 220);
   }
+
   ngAfterViewInit(): void {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // fires only once
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -229,6 +234,7 @@ public class Almacenamiento<T extends Modelo> {
   }
 
   scrollToSection(sectionId: string): void {
+    this.mobileMenuOpen.set(false);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -247,6 +253,10 @@ public class Almacenamiento<T extends Modelo> {
 
   @HostListener('document:keydown.escape')
   onEscape() {
+    if (this.mobileMenuOpen()) {
+      this.mobileMenuOpen.set(false);
+      return;
+    }
     this.closeVideoModal();
   }
 }
