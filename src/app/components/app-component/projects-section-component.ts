@@ -28,7 +28,7 @@ export class ProjectsSectionComponent {
       ],
       stack: ['Angular', 'Spring Boot', 'MySQL'],
       technologies: ['Spring Security', 'Google Maps', 'Hateoas', 'Tailwind CSS'],
-      githubLink: 'https://github.com/tu-usuario/sullivanmor',
+      githubLink: 'https://github.com/JuanVaccarezza06/front-end-sullivan-m-r',
       codeFilename: 'filter.service.ts',
       codeLanguage: 'typescript',
       demoLink: '',
@@ -69,7 +69,7 @@ export class FilterService {
         'Empaquetado y descarga de reportes en archivos ZIP',
         'Interfaz de usuario moderna e intuitiva',
       ],
-      stack: ['Java', 'Angular 20', 'TypeScript'],
+      stack: ['Java', 'Angular', 'TypeScript'],
       technologies: ['Apache POI', 'Tailwind CSS', 'Manejo de Memoria'],
       githubLink: 'https://github.com/juanvaccarezza06/smart-sheet-reporter',
       codeFilename: 'ExcelUtils.java',
@@ -171,6 +171,8 @@ public class Almacenamiento<T extends Modelo> {
   ];
 
   email: string = "juanpirvaccarezza@gmail.com"
+  github: string = "https://github.com/JuanVaccarezza06"
+  linkedin: string = "https://www.linkedin.com/in/juan-pablo-vaccarezza-ab2719263/"
 
   expandedProjectId = signal<string | null>(null);
   isVideoModalOpen = signal(false);

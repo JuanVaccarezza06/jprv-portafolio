@@ -46,7 +46,7 @@
         </button>
 
         <button
-          (click)="scrollToSection('sobre-mi')"
+          (click)="scrollToSection('inicio')"
           class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
         >
           Sobre Mí
@@ -66,7 +66,7 @@
       >
         <li>
           <a
-            href="https://github.com/tu-usuario"
+            href="{{ github }}"
             target="_blank"
             rel="noopener noreferrer"
             class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
@@ -94,7 +94,7 @@
         </li>
         <li>
           <a
-            href="https://linkedin.com/in/tu-usuario"
+            href="{{ linkedin }}"
             target="_blank"
             rel="noopener noreferrer"
             class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
@@ -255,7 +255,7 @@
                 class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
                 aria-hidden="true"
               ></span>
-              Código seguro · OWASP Top 10
+              Penetration Testing
             </span>
           </li>
           <li>
@@ -266,7 +266,7 @@
                 class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
                 aria-hidden="true"
               ></span>
-              Cifrado en tránsito y reposo
+              Detección de vulnerabilidades
             </span>
           </li>
           <li>
@@ -277,7 +277,7 @@
                 class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
                 aria-hidden="true"
               ></span>
-              Autenticación segura
+              Seguridad en la nube
             </span>
           </li>
           <li>
@@ -288,7 +288,7 @@
                 class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
                 aria-hidden="true"
               ></span>
-              Principio de mínimo privilegio
+              Análisis de malware
             </span>
           </li>
         </ul>
@@ -323,7 +323,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-14 reveal">
           <!-- Desarrollo Web (destacada) -->
           <article
-            class="bg-white border-2 border-slate-200 rounded-2xl p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group relative"
+            class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group relative"
           >
             <div class="flex items-start justify-between">
               <div
@@ -428,7 +428,7 @@
               <li>
                 <span
                   class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Integración de sistemas</span
+                  >APIs & Sistemas</span
                 >
               </li>
             </ul>
@@ -873,7 +873,7 @@
             href="mailto:{{ email }}"
             class="block text-slate-900 font-bold text-lg hover:text-blue-600 transition-colors"
           >
-            {{email}}
+            {{ email }}
           </a>
         </div>
 
@@ -882,10 +882,10 @@
         >
           <li>
             <a
-              href="https://github.com/tu-usuario"
+              href="{{ github }}"
               target="_blank"
               rel="noopener noreferrer"
-              class="p-2 rounded-lg bg-slate-50 text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm border border-transparent hover:border-slate-200 transition-all"
+              class="inline-flex items-center justify-center p-2 rounded-lg bg-slate-50 text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm border border-transparent hover:border-slate-200 transition-all"
               aria-label="Perfil de GitHub de Juan Pablo Vaccarezza"
             >
               <svg
@@ -910,10 +910,10 @@
           </li>
           <li>
             <a
-              href="https://linkedin.com/in/tu-usuario"
+              href="{{ linkedin }}"
               target="_blank"
               rel="noopener noreferrer"
-              class="p-2 rounded-lg bg-slate-50 text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm border border-transparent hover:border-slate-200 transition-all"
+              class="inline-flex items-center justify-center p-2 rounded-lg bg-slate-50 text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm border border-transparent hover:border-slate-200 transition-all"
               aria-label="Perfil de LinkedIn de Juan Pablo Vaccarezza"
             >
               <svg
@@ -946,11 +946,8 @@
     class="border-t border-slate-300 py-8 px-8 flex justify-between items-center text-sm text-slate-500 max-w-5xl mx-auto"
     role="contentinfo"
   >
-    <p>© 2026 Portfolio. Todos los derechos reservados.</p>
-    <p>
-      Desarrollado con <span class="text-blue-600 font-medium">Angular 20</span> y
-      <span class="text-blue-600 font-medium">Tailwind CSS</span>
-    </p>
+    <p>Juan Pablo Vaccarezza · 2026</p>
+    <p>Desarrollado con <span class="text-blue-600 font-medium">Angular 20</span></p>
   </footer>
 
   @if (isVideoModalOpen()) {
