@@ -176,7 +176,7 @@ public class Almacenamiento<T extends Modelo> {
 
   expandedProjectId = signal<string | null>(null);
   isVideoModalOpen = signal(false);
-  currentVideoUrl = signal<string | null>(null);
+  currentVideoUrl = signal<string>('');
   mobileMenuOpen = signal(false);
 
   toggleMobileMenu(): void {
@@ -248,7 +248,7 @@ public class Almacenamiento<T extends Modelo> {
 
   closeVideoModal() {
     this.isVideoModalOpen.set(false);
-    document.body.style.overflow = '';
+    this.currentVideoUrl.set('');
   }
 
   @HostListener('document:keydown.escape')
