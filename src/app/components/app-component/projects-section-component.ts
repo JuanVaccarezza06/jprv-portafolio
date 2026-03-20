@@ -182,7 +182,7 @@ public class ExcelUtils {
           story: [
             '<strong>Sistema de Gestión de Balneario</strong> fue desarrollado como Trabajo Final para la materia Programación II, con el objetivo de aplicar conceptos avanzados de Programación Orientada a Objetos en un caso de uso real y complejo.',
             'La plataforma fue diseñada para gestionar el día a día de un complejo de playa, resolviendo la asignación de carpas, sombrillas y cocheras, así como el control de los empleados, puestos comerciales y atención médica.',
-            'A nivel técnico, destaca por prescindir de bases de datos relacionales estándar en favor de un sistema de almacenamiento y persistencia propio basado en archivos JSON, implementando clases genéricas para un manejo dinámico y eficiente de las colecciones de datos. Los invito a analizar su codigo disponible en su repositorio.',
+            'A nivel técnico, destaca por prescindir de bases de datos relacionales estándar en favor de un sistema de almacenamiento y persistencia propio basado en archivos JSON, implementando clases genéricas para un manejo dinámico y eficiente de las colecciones de datos. Los invito a analizar su código disponible en su repositorio.',
           ],
           mainFeatures: [
             'Gestión integral de reservas y contratos',
