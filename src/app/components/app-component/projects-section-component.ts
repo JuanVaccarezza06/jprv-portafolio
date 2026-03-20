@@ -108,7 +108,7 @@ export class FilterService {
           story: [
             '<strong>Smart Sheet Reporter</strong> fue desarrollado para transformar datos tabulares en documentos estructurados y listos para descargar. En este sistema, el Excel funciona como una base de datos: cada fila contiene la información necesaria para crear un documento, como puede ser una factura comercial, un reporte o un certificado.',
             'La plataforma cuenta con una interfaz fluida construida en Angular, que se comunica con un robusto backend en Java. El proceso es muy intuitivo: al cargar los datos, el motor del sistema lee el archivo en memoria y relaciona dinámicamente las columnas del Excel con palabras clave o campos definidos previamente en una plantilla de diseño.',
-            'De esta forma, el sistema procesa la información de forma instantánea para generar documentos individuales, empaquetándolos en un archivo ZIP. La mayor fortaleza de esta arquitectura es su lógica altamente reutilizable: basta con agregar las reglas de tu negocio a los documentos origen, y el sistema se adaptara fácilmente a diferentes contextos de negocio sin necesidad de modificar el código.',
+            'De esta forma, el sistema procesa la información de forma instantánea para generar documentos individuales, empaquetándolos en un archivo ZIP. La mayor fortaleza de esta arquitectura es su lógica altamente reutilizable: basta con agregar las reglas de tu negocio a los documentos origen, y el sistema se adaptará fácilmente a diferentes contextos de negocio sin necesidad de modificar el código.',
           ],
           mainFeatures: [
             'Lectura y parseo dinámico de archivos Excel (.xlsx)',
