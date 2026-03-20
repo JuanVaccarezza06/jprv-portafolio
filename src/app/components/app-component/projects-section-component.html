@@ -1,298 +1,167 @@
-<div
-  class="  bg-[#eef2fa] min-h-screen text-slate-900 font-sans selection:bg-blue-200 selection:text-blue-900 "
->
+<div class="bg-[#eef2fa] min-h-screen text-slate-900 font-sans selection:bg-blue-200 selection:text-blue-900">
+
   <header
     class="fixed top-0 w-full z-50 border-b border-slate-300 bg-[#eef2fa]/80 backdrop-blur-md"
     role="banner"
   >
+    <!-- Desktop header -->
     <div class="hidden md:grid mx-auto grid-cols-3 h-20 max-w-7xl items-center px-6">
+
       <button
         (click)="scrollToSection('inicio')"
         class="group flex flex-col justify-center items-start cursor-pointer bg-transparent border-none p-0 min-w-0"
       >
-        <span
-          class="text-sm lg:text-lg font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors whitespace-nowrap"
-        >
+        <span class="text-sm lg:text-lg font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors whitespace-nowrap">
           Juan Pablo Vaccarezza
         </span>
-        <span
-          class="hidden lg:block text-xs font-medium text-slate-500 tracking-wide whitespace-nowrap"
-        >
-          Desarrollador de Software | Técnico Universitario
+        <span class="hidden lg:block text-xs font-medium text-slate-500 tracking-wide whitespace-nowrap">
+          {{ t().role }}
         </span>
       </button>
 
-      <nav class="flex items-center justify-center gap-8" aria-label="Navegación principal">
-        <button
-          (click)="scrollToSection('inicio')"
-          class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
-        >
-          Inicio
+      <nav class="flex items-center justify-center gap-8" [attr.aria-label]="t().aria.nav">
+        <button (click)="scrollToSection('inicio')" class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none">
+          {{ t().nav.home }}
         </button>
-        <button
-          (click)="scrollToSection('servicios')"
-          class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
-        >
-          Servicios
+        <button (click)="scrollToSection('servicios')" class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none">
+          {{ t().nav.services }}
         </button>
-        <button
-          (click)="scrollToSection('proyectos')"
-          class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
-        >
-          Proyectos
+        <button (click)="scrollToSection('proyectos')" class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none">
+          {{ t().nav.projects }}
         </button>
-        <button
-          (click)="scrollToSection('contacto')"
-          class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none"
-        >
-          Contacto
+        <button (click)="scrollToSection('contacto')" class="cursor-pointer text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors bg-transparent border-none">
+          {{ t().nav.contact }}
         </button>
       </nav>
 
-      <ul
-        class="flex items-center gap-2 list-none m-0 p-0 justify-center"
-        aria-label="Redes sociales"
-      >
-        <li>
-          <a
-            href="{{ github }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
-            aria-label="Perfil de GitHub"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-5 w-5"
-              aria-hidden="true"
-            >
-              <path
-                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-              />
-              <path d="M9 18c-4.51 2-5-2-7-2" />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a
-            href="{{ linkedin }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
-            aria-label="Perfil de LinkedIn"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-5 w-5"
-              aria-hidden="true"
-            >
-              <path
-                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-              />
-              <rect width="4" height="12" x="2" y="9" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a
-            href="mailto:{{ email }}"
-            class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
-            aria-label="Enviar email"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-5 w-5"
-              aria-hidden="true"
-            >
-              <rect width="20" height="16" x="2" y="4" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-          </a>
-        </li>
-      </ul>
+      <div class="flex items-center justify-end gap-4">
+        <!-- Language toggle -->
+        <div
+          class="flex items-center bg-slate-100 border border-slate-200 rounded-lg p-0.5 gap-0.5"
+          role="group"
+          [attr.aria-label]="t().aria.langToggle"
+        >
+          <button (click)="setLang('es')" [class]="langBtnClass('es')">ES</button>
+          <button (click)="setLang('en')" [class]="langBtnClass('en')">EN</button>
+        </div>
+
+        <!-- Social icons -->
+        <ul class="flex items-center gap-2 list-none m-0 p-0" [attr.aria-label]="t().aria.socials">
+          <li>
+            <a href="{{ github }}" target="_blank" rel="noopener noreferrer"
+              class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
+              [attr.aria-label]="t().aria.github">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                <path d="M9 18c-4.51 2-5-2-7-2"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="{{ linkedin }}" target="_blank" rel="noopener noreferrer"
+              class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
+              [attr.aria-label]="t().aria.linkedin">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect width="4" height="12" x="2" y="9"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:{{ email }}"
+              class="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm transition-all"
+              [attr.aria-label]="t().aria.email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
+    <!-- Mobile header -->
     <div class="md:hidden flex items-center justify-between h-16 px-4">
       <button
         (click)="scrollToSection('inicio')"
         class="flex flex-col justify-center items-start cursor-pointer bg-transparent border-none p-0"
       >
         <span class="text-base font-bold tracking-tight text-slate-900">Juan Pablo Vaccarezza</span>
-        <span class="text-[10px] font-medium text-slate-500 tracking-wide"
-          >Desarrollador de Software</span
-        >
+        <span class="text-[10px] font-medium text-slate-500 tracking-wide">{{ t().roleMobile }}</span>
       </button>
 
-      <button
-        (click)="toggleMobileMenu()"
-        class="flex items-center justify-center w-10 h-10 rounded-lg text-slate-600 hover:bg-white hover:text-blue-600 transition-all border border-transparent hover:border-slate-200"
-        [attr.aria-expanded]="mobileMenuOpen()"
-        aria-label="Abrir menú de navegación"
-      >
-        @if (!mobileMenuOpen()) {
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <line x1="4" y1="6" x2="20" y2="6" />
-            <line x1="4" y1="12" x2="20" y2="12" />
-            <line x1="4" y1="18" x2="20" y2="18" />
-          </svg>
-        } @else {
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M18 6 6 18" />
-            <path d="m6 6 12 12" />
-          </svg>
-        }
-      </button>
+      <div class="flex items-center gap-2">
+        <!-- Language toggle mobile -->
+        <div
+          class="flex items-center bg-slate-100 border border-slate-200 rounded-lg p-0.5 gap-0.5"
+          role="group"
+          [attr.aria-label]="t().aria.langToggle"
+        >
+          <button (click)="setLang('es')" [class]="langBtnClass('es')">ES</button>
+          <button (click)="setLang('en')" [class]="langBtnClass('en')">EN</button>
+        </div>
+
+        <button
+          (click)="toggleMobileMenu()"
+          class="flex items-center justify-center w-10 h-10 rounded-lg text-slate-600 hover:bg-white hover:text-blue-600 transition-all border border-transparent hover:border-slate-200"
+          [attr.aria-expanded]="mobileMenuOpen()"
+          [attr.aria-label]="t().aria.mobileMenuBtn"
+        >
+          @if (!mobileMenuOpen()) {
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4" y1="6" x2="20" y2="6"/>
+              <line x1="4" y1="12" x2="20" y2="12"/>
+              <line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
+          } @else {
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 6 6 18"/>
+              <path d="m6 6 12 12"/>
+            </svg>
+          }
+        </button>
+      </div>
     </div>
 
     @if (mobileMenuOpen()) {
       <nav
         class="md:hidden border-t border-slate-200 bg-[#eef2fa]/95 backdrop-blur-md px-4 py-4 flex flex-col gap-1"
-        aria-label="Menú móvil"
+        [attr.aria-label]="t().aria.mobileNav"
       >
-        <button
-          (click)="scrollToSection('inicio')"
-          class="w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-white hover:text-blue-600 transition-colors bg-transparent border-none"
-        >
-          Inicio
+        <button (click)="scrollToSection('inicio')" class="w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-white hover:text-blue-600 transition-colors bg-transparent border-none">
+          {{ t().nav.home }}
         </button>
-        <button
-          (click)="scrollToSection('servicios')"
-          class="w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-white hover:text-blue-600 transition-colors bg-transparent border-none"
-        >
-          Servicios
+        <button (click)="scrollToSection('servicios')" class="w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-white hover:text-blue-600 transition-colors bg-transparent border-none">
+          {{ t().nav.services }}
         </button>
-        <button
-          (click)="scrollToSection('proyectos')"
-          class="w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-white hover:text-blue-600 transition-colors bg-transparent border-none"
-        >
-          Proyectos
+        <button (click)="scrollToSection('proyectos')" class="w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-white hover:text-blue-600 transition-colors bg-transparent border-none">
+          {{ t().nav.projects }}
         </button>
-        <button
-          (click)="scrollToSection('contacto')"
-          class="w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-white hover:text-blue-600 transition-colors bg-transparent border-none"
-        >
-          Contacto
+        <button (click)="scrollToSection('contacto')" class="w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-white hover:text-blue-600 transition-colors bg-transparent border-none">
+          {{ t().nav.contact }}
         </button>
         <div class="flex gap-3 mt-3 pt-3 border-t border-slate-200 px-4">
-          <a
-            href="{{ github }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 transition-colors"
-            aria-label="GitHub"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path
-                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-              />
-              <path d="M9 18c-4.51 2-5-2-7-2" />
+          <a href="{{ github }}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 transition-colors" [attr.aria-label]="t().aria.github">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+              <path d="M9 18c-4.51 2-5-2-7-2"/>
             </svg>
             GitHub
           </a>
-          <a
-            href="{{ linkedin }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 transition-colors"
-            aria-label="LinkedIn"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path
-                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-              />
-              <rect width="4" height="12" x="2" y="9" />
-              <circle cx="4" cy="4" r="2" />
+          <a href="{{ linkedin }}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 transition-colors" [attr.aria-label]="t().aria.linkedin">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect width="4" height="12" x="2" y="9"/>
+              <circle cx="4" cy="4" r="2"/>
             </svg>
             LinkedIn
           </a>
-          <a
-            href="mailto:{{ email }}"
-            class="flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 transition-colors"
-            aria-label="Email"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <rect width="20" height="16" x="2" y="4" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          <a href="mailto:{{ email }}" class="flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 transition-colors" [attr.aria-label]="t().aria.email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
             </svg>
             Email
           </a>
@@ -302,425 +171,128 @@
   </header>
 
   <main class="mx-auto max-w-5xl">
-    <section
-      id="inicio"
-      class="min-h-[70vh] flex flex-col justify-center items-center text-center px-4 pt-24 md:pt-32"
-      aria-labelledby="hero-heading"
-    >
-      <div
-        class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white border border-slate-200 mb-6 md:mb-8 text-blue-600 font-mono font-bold shadow-sm"
-        aria-hidden="true"
-      >
+
+    <!-- Hero -->
+    <section id="inicio" class="min-h-[70vh] flex flex-col justify-center items-center text-center px-4 pt-24 md:pt-32" aria-labelledby="hero-heading">
+      <div class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white border border-slate-200 mb-6 md:mb-8 text-blue-600 font-mono font-bold shadow-sm" aria-hidden="true">
         &lt;/&gt;
       </div>
-
-      <h1
-        id="hero-heading"
-        class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 md:mb-6 text-slate-900 leading-tight"
-      >
-        Desarrollo de software
-        <span class="text-blue-600"> personalizado</span>
-        para tu negocio
+      <h1 id="hero-heading" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 md:mb-6 text-slate-900 leading-tight">
+        {{ t().hero.title }}
+        <span class="text-blue-600"> {{ t().hero.titleHighlight }}</span>
+        {{ t().hero.titleEnd }}
       </h1>
-
       <p class="text-slate-600 max-w-2xl text-base md:text-lg mb-8 md:mb-10 leading-relaxed px-2">
-        Técnico Universitario en Programación especializado en desarrollo web y en ingeniería de
-        software. Transformo requisitos complejos en soluciones robustas y sostenibles con
-        tecnologías modernas.
+        {{ t().hero.description }}
       </p>
-
-      <div
-        class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 md:mb-12 w-full sm:w-auto px-4 sm:px-0"
-      >
-        <button
-          class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm w-full sm:w-auto"
-          (click)="scrollToSection('proyectos')"
-        >
-          Ver Proyectos
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 md:mb-12 w-full sm:w-auto px-4 sm:px-0">
+        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm w-full sm:w-auto" (click)="scrollToSection('proyectos')">
+          {{ t().hero.viewProjects }}
         </button>
-        <button
-          class="bg-white text-slate-900 px-6 py-3 rounded-lg font-medium border border-slate-300 hover:bg-slate-50 hover:text-blue-600 transition-colors shadow-sm w-full sm:w-auto"
-          (click)="scrollToSection('contacto')"
-        >
-          Contactar
+        <button class="bg-white text-slate-900 px-6 py-3 rounded-lg font-medium border border-slate-300 hover:bg-slate-50 hover:text-blue-600 transition-colors shadow-sm w-full sm:w-auto" (click)="scrollToSection('contacto')">
+          {{ t().hero.contact }}
         </button>
       </div>
-
       <span class="text-slate-400 animate-bounce mt-2" aria-hidden="true">↓</span>
     </section>
 
-    <div class="px-4 pb-8 mb-4 mt-2 reveal" role="note" aria-label="Compromiso de seguridad">
-      <div
-        class="max-w-5xl mx-auto bg-white border border-slate-200 border-l-4 border-l-blue-600 rounded-2xl px-5 md:px-8 py-6 md:py-8 flex flex-col gap-5 md:gap-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(37,99,235,0.1)] hover:border-slate-300"
-      >
+    <!-- Security commitment -->
+    <div class="px-4 pb-8 mb-4 mt-2 reveal" role="note" [attr.aria-label]="t().aria.security">
+      <div class="max-w-5xl mx-auto bg-white border border-slate-200 border-l-4 border-l-blue-600 rounded-2xl px-5 md:px-8 py-6 md:py-8 flex flex-col gap-5 md:gap-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(37,99,235,0.1)] hover:border-slate-300">
         <div class="flex items-start gap-4 md:gap-6">
-          <div
-            class="hidden sm:flex flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 items-center justify-center animate-shield-pulse"
-            aria-hidden="true"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <path d="m9 12 2 2 4-4" />
+          <div class="hidden sm:flex flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 items-center justify-center animate-shield-pulse" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
             </svg>
           </div>
-
           <div class="flex-1 min-w-0">
-            <p class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-2">
-              Compromiso de seguridad
-            </p>
-            <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3 leading-snug">
-              Seguridad en cada línea de código
-            </h3>
+            <p class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-2">{{ t().security.badge }}</p>
+            <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3 leading-snug">{{ t().security.title }}</h3>
             <p class="text-slate-500 text-sm leading-relaxed m-0">
-              Como próximo diplomado en
-              <strong class="text-blue-600 font-semibold">Ciberseguridad</strong> garantizo en cada
-              proyecto que desarrollo, las mejores prácticas de seguridad desde el diseño. Tu
-              código, tus datos y tus usuarios están protegidos.
+              {{ t().security.descriptionPrefix }}
+              <strong class="text-blue-600 font-semibold">{{ t().security.certKeyword }}</strong>
+              {{ t().security.descriptionSuffix }}
             </p>
           </div>
         </div>
-
-        <hr class="border-slate-100 m-0" />
-
-        <ul
-          class="flex flex-wrap gap-2 md:gap-3 list-none m-0 p-0"
-          aria-label="Prácticas de seguridad aplicadas"
-        >
-          <li>
-            <span
-              class="flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full"
-              ><span
-                class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
-                aria-hidden="true"
-              ></span
-              >Penetration Testing</span
-            >
-          </li>
-          <li>
-            <span
-              class="flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full"
-              ><span
-                class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
-                aria-hidden="true"
-              ></span
-              >Detección de vulnerabilidades</span
-            >
-          </li>
-          <li>
-            <span
-              class="flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full"
-              ><span
-                class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
-                aria-hidden="true"
-              ></span
-              >Seguridad en la nube</span
-            >
-          </li>
-          <li>
-            <span
-              class="flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full"
-              ><span
-                class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
-                aria-hidden="true"
-              ></span
-              >Análisis de malware</span
-            >
-          </li>
+        <hr class="border-slate-100 m-0"/>
+        <ul class="flex flex-wrap gap-2 md:gap-3 list-none m-0 p-0" [attr.aria-label]="t().aria.securityPractices">
+          @for (tag of t().security.tags; track tag) {
+            <li>
+              <span class="flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" aria-hidden="true"></span>
+                {{ tag }}
+              </span>
+            </li>
+          }
         </ul>
       </div>
     </div>
 
-    <section
-      id="servicios"
-      class="flex flex-col items-center px-4 pb-8 reveal"
-      aria-labelledby="servicios-heading"
-    >
+    <!-- Services -->
+    <section id="servicios" class="flex flex-col items-center px-4 pb-8 reveal" aria-labelledby="servicios-heading">
       <div class="w-full max-w-4xl">
-        <p class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-3 md:mb-4">
-          Servicios
-        </p>
-        <h2
-          id="servicios-heading"
-          class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 md:mb-6 leading-tight"
-        >
-          ¿Necesitas profesionalizar tu negocio? <span class="text-blue-600">Yo te ayudo.</span>
+        <p class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-3 md:mb-4">{{ t().services.badge }}</p>
+        <h2 id="servicios-heading" class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 md:mb-6 leading-tight">
+          {{ t().services.title }} <span (click)="scrollToSection('contacto')" class="text-blue-600">{{ t().services.titleHighlight }}</span>
         </h2>
         <p class="text-slate-500 text-sm md:text-base max-w-xl mb-10 md:mb-14 leading-relaxed">
-          Cada línea de código que escribo tiene un propósito: hacer que tu idea cobre vida y que tu
-          negocio destaque.
-          <span class="text-blue-600 font-medium"
-            >Sin plantillas genéricas, sin soluciones a medias.</span
-          >
+          {{ t().services.description }}
+          <span class="text-blue-600 font-medium">{{ t().services.descriptionHighlight }}</span>
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 md:mb-14 reveal">
-          <article
-            class="bg-white border border-slate-200 rounded-2xl p-5 md:p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group relative"
-          >
-            <div class="flex items-start justify-between">
-              <div
-                class="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-100 text-blue-600 flex items-center justify-center border border-slate-200"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="16 18 22 12 16 6" />
-                  <polyline points="8 6 2 12 8 18" />
-                </svg>
+          @for (card of t().services.cards; track card.title; let i = $index) {
+            <article class="bg-white border border-slate-200 rounded-2xl p-5 md:p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group">
+              <div class="flex items-start justify-between">
+                <div class="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-100 text-blue-600 flex items-center justify-center border border-slate-200">
+                  @switch (i) {
+                    @case (0) {
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    }
+                    @case (1) {
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    }
+                    @case (2) {
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    }
+                    @case (3) {
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    }
+                  }
+                </div>
               </div>
-            </div>
-            <div>
-              <h3 class="text-base md:text-lg font-bold text-slate-900 mb-2">Desarrollo Web</h3>
-              <p class="text-slate-500 text-sm leading-relaxed">
-                Aplicaciones web modernas y responsivas con Angular, React y tecnologías de
-                vanguardia. Interfaces que enamoran.
-              </p>
-            </div>
-            <ul class="flex flex-wrap gap-2 list-none m-0 p-0 mt-auto">
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Single Page Apps</span
-                >
-              </li>
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Dashboards</span
-                >
-              </li>
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >E-commerce</span
-                >
-              </li>
-            </ul>
-          </article>
-
-          <article
-            class="bg-white border border-slate-200 rounded-2xl p-5 md:p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group"
-            aria-label="Servicio: Software a Medida"
-          >
-            <div class="flex items-start justify-between">
-              <div
-                class="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-100 text-blue-600 flex items-center justify-center border border-slate-200"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <path d="M8 21h8M12 17v4" />
-                </svg>
+              <div>
+                <h3 class="text-base md:text-lg font-bold text-slate-900 mb-2">{{ card.title }}</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">{{ card.description }}</p>
               </div>
-            </div>
-            <div>
-              <h3 class="text-base md:text-lg font-bold text-slate-900 mb-2">Software a Medida</h3>
-              <p class="text-slate-500 text-sm leading-relaxed">
-                Soluciones de escritorio robustas en Java. Sistemas que resuelven problemas reales
-                de tu negocio.
-              </p>
-            </div>
-            <ul class="flex flex-wrap gap-2 list-none m-0 p-0 mt-auto">
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Gestión empresarial</span
-                >
-              </li>
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Automatización</span
-                >
-              </li>
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >APIs & Sistemas</span
-                >
-              </li>
-            </ul>
-          </article>
-
-          <article
-            class="bg-white border border-slate-200 rounded-2xl p-5 md:p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group"
-            aria-label="Servicio: Mantenimiento"
-          >
-            <div class="flex items-start justify-between">
-              <div
-                class="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-100 text-blue-600 flex items-center justify-center border border-slate-200"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-base md:text-lg font-bold text-slate-900 mb-2">Mantenimiento</h3>
-              <p class="text-slate-500 text-sm leading-relaxed">
-                Tu código legacy merece amor. Refactorización, optimización y documentación para que
-                tu sistema respire.
-              </p>
-            </div>
-            <ul class="flex flex-wrap gap-2 list-none m-0 p-0 mt-auto">
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Refactoring</span
-                >
-              </li>
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Performance</span
-                >
-              </li>
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Documentación</span
-                >
-              </li>
-            </ul>
-          </article>
-
-          <article
-            class="bg-white border border-slate-200 rounded-2xl p-5 md:p-7 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all group"
-            aria-label="Servicio: Consultoría Técnica"
-          >
-            <div class="flex items-start justify-between">
-              <div
-                class="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-slate-100 text-blue-600 flex items-center justify-center border border-slate-200"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 16v-4M12 8h.01" />
-                </svg>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-base md:text-lg font-bold text-slate-900 mb-2">
-                Consultoría Técnica
-              </h3>
-              <p class="text-slate-500 text-sm leading-relaxed">
-                ¿No sabes por dónde empezar? Te ayudo a definir la arquitectura y el stack
-                tecnológico ideal para tu proyecto.
-              </p>
-            </div>
-            <ul class="flex flex-wrap gap-2 list-none m-0 p-0 mt-auto">
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Análisis de requerimientos</span
-                >
-              </li>
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Arquitectura</span
-                >
-              </li>
-              <li>
-                <span
-                  class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full"
-                  >Mentoría</span
-                >
-              </li>
-            </ul>
-          </article>
+              <ul class="flex flex-wrap gap-2 list-none m-0 p-0 mt-auto">
+                @for (tag of card.tags; track tag) {
+                  <li><span class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full">{{ tag }}</span></li>
+                }
+              </ul>
+            </article>
+          }
         </div>
 
         <div class="flex flex-col items-center gap-4">
-          <p class="text-slate-500 text-sm">¿Tienes un proyecto en mente? Hablemos.</p>
-          <button
-            (click)="scrollToSection('contacto')"
-            class="flex items-center gap-2 bg-blue-600 text-white px-7 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm"
-          >
-            Contactar
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+          <p class="text-slate-500 text-sm">{{ t().services.cta }}</p>
+          <button (click)="scrollToSection('contacto')" class="flex items-center gap-2 bg-blue-600 text-white px-7 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm">
+            {{ t().services.ctaButton }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </div>
       </div>
     </section>
 
-    <section
-      id="proyectos"
-      class="flex flex-col items-center px-4 reveal"
-      aria-labelledby="proyectos-heading"
-    >
+    <!-- Projects -->
+    <section id="proyectos" class="flex flex-col items-center px-4 reveal" aria-labelledby="proyectos-heading">
       <h2 id="proyectos-heading" class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
-        Proyectos Destacados
+        {{ t().projects.title }}
       </h2>
       <p class="text-slate-500 text-center max-w-xl mb-8 md:mb-10 text-sm md:text-base px-2">
-        Una selección de proyectos que demuestran mis habilidades en diferentes tecnologías y
-        dominios. Haz clic en cada tarjeta para explorar los detalles.
+        {{ t().projects.description }}
       </p>
 
       <ol class="w-full max-w-4xl flex flex-col gap-4 list-none p-0 m-0">
@@ -736,54 +308,31 @@
                   (click)="toggleProject(project.id)"
                 >
                   <div class="flex items-center gap-4 min-w-0 flex-1">
-                    <div
-                      class="w-11 h-11 md:w-12 md:h-12 flex-shrink-0 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-slate-200"
-                    >
+                    <div class="w-11 h-11 md:w-12 md:h-12 flex-shrink-0 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-slate-200">
                       <app-icon-component [name]="project.id"></app-icon-component>
                     </div>
                     <div class="min-w-0">
-                      <h3
-                        class="text-base md:text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-tight"
-                      >
-                        {{ project.title }}
+                      <!-- tr(project) picks the right language from the nested translations object -->
+                      <h3 class="text-base md:text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-tight">
+                        {{ tr(project).title }}
                       </h3>
-                      <p
-                        class="text-slate-500 text-xs md:text-sm mt-0.5 md:mt-1 line-clamp-2 sm:line-clamp-none"
-                      >
-                        {{ project.intro }}
+                      <p class="text-slate-500 text-xs md:text-sm mt-0.5 md:mt-1 line-clamp-2 sm:line-clamp-none">
+                        {{ tr(project).intro }}
                       </p>
                     </div>
                   </div>
 
                   <div class="flex items-center gap-3 flex-shrink-0 pl-0 sm:pl-2">
-                    <ul
-                      class="flex flex-wrap gap-1.5 md:gap-2 list-none m-0 p-0"
-                      aria-label="Tecnologías principales"
-                    >
+                    <ul class="flex flex-wrap gap-1.5 md:gap-2 list-none m-0 p-0" [attr.aria-label]="t().projects.mainTechLabel">
                       @for (tech of project.stack; track tech) {
-                        <li>
-                          <span
-                            class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 md:px-3 py-1 rounded-full"
-                            >{{ tech }}</span
-                          >
-                        </li>
+                        <li><span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 md:px-3 py-1 rounded-full">{{ tech }}</span></li>
                       }
                     </ul>
                     <svg
                       [class.rotate-180]="expandedProjectId() === project.id"
                       class="text-slate-400 group-hover:text-blue-600 transition-transform duration-300 hidden sm:block flex-shrink-0"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="m6 9 6 6 6-6" />
+                      xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="m6 9 6 6 6-6"/>
                     </svg>
                   </div>
                 </div>
@@ -793,98 +342,50 @@
                   [style.maxHeight]="expandedProjectId() === project.id ? '3000px' : '0px'"
                   [style.opacity]="expandedProjectId() === project.id ? '1' : '0'"
                 >
-                  <div
-                    class="mt-5 md:mt-6 pt-5 md:pt-6 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8"
-                  >
+                  <div class="mt-5 md:mt-6 pt-5 md:pt-6 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                     <div class="flex flex-col">
-                      <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">
-                        La Historia del Proyecto
-                      </h4>
+                      <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">{{ t().projects.storyLabel }}</h4>
                       <div class="text-slate-600 text-sm leading-relaxed mb-5 md:mb-6 space-y-3">
-                        @for (paragraph of project.story; track $index) {
+                        @for (paragraph of tr(project).story; track $index) {
                           <p [innerHTML]="paragraph"></p>
                         }
                       </div>
 
-                      <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">
-                        Hitos
-                      </h4>
-                      <ul
-                        class="list-disc list-inside text-slate-600 text-sm space-y-2 mb-5 md:mb-6"
-                      >
-                        @for (feature of project.mainFeatures; track $index) {
+                      <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">{{ t().projects.milestonesLabel }}</h4>
+                      <ul class="list-disc list-inside text-slate-600 text-sm space-y-2 mb-5 md:mb-6">
+                        @for (feature of tr(project).mainFeatures; track $index) {
                           <li>{{ feature }}</li>
                         }
                       </ul>
 
-                      <ul
-                        class="flex flex-wrap gap-2 mb-5 md:mb-6 list-none m-0 p-0"
-                        aria-label="Stack tecnológico completo"
-                      >
+                      <ul class="flex flex-wrap gap-2 mb-5 md:mb-6 list-none m-0 p-0" [attr.aria-label]="t().projects.stackLabel">
                         @for (tech of project.technologies; track tech) {
-                          <li>
-                            <span
-                              class="border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-md"
-                              >{{ tech }}</span
-                            >
-                          </li>
+                          <li><span class="border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-md">{{ tech }}</span></li>
                         }
                       </ul>
 
                       <div class="flex gap-4 mb-5 md:mb-6 flex-wrap">
                         @if (project.githubLink) {
-                          <a
-                            [href]="project.githubLink"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <a [href]="project.githubLink" target="_blank" rel="noopener noreferrer"
                             class="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
-                            [attr.aria-label]="'Ver repositorio de ' + project.title + ' en GitHub'"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              aria-hidden="true"
-                            >
-                              <path
-                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-                              />
-                              <path d="M9 18c-4.51 2-5-2-7-2" />
+                            [attr.aria-label]="t().projects.repoAriaPrefix + ' ' + tr(project).title + ' ' + t().projects.repoAriaGithub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                              <path d="M9 18c-4.51 2-5-2-7-2"/>
                             </svg>
-                            Ver en GitHub
+                            {{ t().projects.githubLink }}
                           </a>
                         }
                         @if (project.demoLink) {
-                          <a
-                            [href]="project.demoLink"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <a [href]="project.demoLink" target="_blank" rel="noopener noreferrer"
                             class="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
-                            [attr.aria-label]="'Ver demo de ' + project.title"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              aria-hidden="true"
-                            >
-                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                              <polyline points="15 3 21 3 21 9" />
-                              <line x1="10" y1="14" x2="21" y2="3" />
+                            [attr.aria-label]="t().projects.demoAriaPrefix + ' ' + tr(project).title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                              <polyline points="15 3 21 3 21 9"/>
+                              <line x1="10" y1="14" x2="21" y2="3"/>
                             </svg>
-                            Ver Demo
+                            {{ t().projects.demoLink }}
                           </a>
                         }
                       </div>
@@ -892,34 +393,15 @@
                       @if (project.videoUrl) {
                         <figure
                           class="w-full h-40 md:h-48 rounded-xl overflow-hidden border border-slate-200 shadow-sm relative group m-0 cursor-pointer"
-                          (click)="openVideoModal(project.videoUrl)"
+                          (click)="openVideoModal(project.videoUrl!)"
                         >
-                          <video
-                            class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                            autoplay
-                            muted
-                            loop
-                            playsinline
-                            preload="auto"
-                            [attr.aria-label]="'Vista previa de ' + project.title"
-                          >
-                            <source [src]="project.videoUrl" type="video/mp4" />
+                          <video class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" autoplay muted loop playsinline preload="auto"
+                            [attr.aria-label]="t().projects.previewAriaPrefix + ' ' + tr(project).title">
+                            <source [src]="project.videoUrl" type="video/mp4"/>
                           </video>
-                          <div
-                            class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center"
-                          >
-                            <div
-                              class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-6 w-6 text-blue-600"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                              >
-                                <path d="M8 5v14l11-7z" />
-                              </svg>
+                          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                             </div>
                           </div>
                         </figure>
@@ -927,28 +409,17 @@
                     </div>
 
                     <div class="flex flex-col">
-                      <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">
-                        El Código
-                      </h4>
+                      <h4 class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-3">{{ t().projects.codeLabel }}</h4>
                       <figure class="m-0">
-                        <figcaption class="sr-only">
-                          Fragmento de código de {{ project.title }} ({{ project.codeFilename }})
-                        </figcaption>
-                        <div
-                          class="bg-[#1e1e2e] rounded-xl overflow-hidden shadow-lg border border-slate-800 flex flex-col min-h-[280px] md:min-h-[300px]"
-                        >
-                          <div
-                            class="bg-[#181825] px-4 py-3 flex items-center gap-2 border-b border-white/10"
-                            aria-hidden="true"
-                          >
+                        <figcaption class="sr-only">{{ tr(project).title }} ({{ project.codeFilename }})</figcaption>
+                        <div class="bg-[#1e1e2e] rounded-xl overflow-hidden shadow-lg border border-slate-800 flex flex-col min-h-[280px] md:min-h-[300px]">
+                          <div class="bg-[#181825] px-4 py-3 flex items-center gap-2 border-b border-white/10" aria-hidden="true">
                             <div class="flex gap-1.5">
                               <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
                               <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                               <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
                             </div>
-                            <span class="text-[#a6adc8] text-xs font-mono ml-4">{{
-                              project.codeFilename
-                            }}</span>
+                            <span class="text-[#a6adc8] text-xs font-mono ml-4">{{ project.codeFilename }}</span>
                           </div>
                           <div class="overflow-x-auto text-xs md:text-sm">
                             <pre><code [highlight]="project.code" [language]="project.codeLanguage"></code></pre>
@@ -965,105 +436,41 @@
       </ol>
     </section>
 
-    <section
-      id="contacto"
-      class="flex flex-col items-center px-4 py-12 md:py-16 mb-8 reveal"
-      aria-labelledby="contacto-heading"
-    >
-      <h2 id="contacto-heading" class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
-        Contacto
-      </h2>
-      <p class="text-slate-500 text-center max-w-xl mb-8 md:mb-10 text-sm md:text-base px-2">
-        ¿Tienes un proyecto en mente? Me encantaría escucharte. Estoy disponible para oportunidades
-        freelance y colaboraciones.
-      </p>
+    <!-- Contact -->
+    <section id="contacto" class="flex flex-col items-center px-4 py-12 md:py-16 mb-8 reveal" aria-labelledby="contacto-heading">
+      <h2 id="contacto-heading" class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">{{ t().contact.title }}</h2>
+      <p class="text-slate-500 text-center max-w-xl mb-8 md:mb-10 text-sm md:text-base px-2">{{ t().contact.description }}</p>
 
-      <address
-        class="reveal bg-white border border-slate-200 shadow-sm rounded-2xl p-6 md:p-8 flex flex-col items-center gap-4 w-full max-w-md not-italic"
-      >
+      <address class="reveal bg-white border border-slate-200 shadow-sm rounded-2xl p-6 md:p-8 flex flex-col items-center gap-4 w-full max-w-md not-italic">
         <div class="text-blue-600 bg-blue-50 p-4 rounded-full" aria-hidden="true">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="h-6 w-6"
-          >
-            <rect width="20" height="16" x="2" y="4" rx="2" />
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+            <rect width="20" height="16" x="2" y="4" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
           </svg>
         </div>
         <div class="text-center w-full">
-          <span class="text-xs text-slate-400 font-bold tracking-widest block mb-1">EMAIL</span>
-          <a
-            href="mailto:{{ email }}"
-            class="block text-slate-900 font-bold text-base md:text-lg hover:text-blue-600 transition-colors break-all"
-            >{{ email }}</a
-          >
+          <span class="text-xs text-slate-400 font-bold tracking-widest block mb-1">{{ t().contact.emailLabel }}</span>
+          <a href="mailto:{{ email }}" class="block text-slate-900 font-bold text-base md:text-lg hover:text-blue-600 transition-colors break-all">{{ email }}</a>
         </div>
-
-        <ul
-          class="flex gap-4 mt-4 pt-4 border-t border-slate-100 w-full justify-center list-none m-0 p-0"
-        >
+        <ul class="flex gap-4 mt-4 pt-4 border-t border-slate-100 w-full justify-center list-none m-0 p-0">
           <li>
-            <a
-              href="{{ github }}"
-              target="_blank"
-              rel="noopener noreferrer"
+            <a href="{{ github }}" target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center justify-center p-2 rounded-lg bg-slate-50 text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm border border-transparent hover:border-slate-200 transition-all"
-              aria-label="Perfil de GitHub"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-5 w-5"
-                aria-hidden="true"
-              >
-                <path
-                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-                />
-                <path d="M9 18c-4.51 2-5-2-7-2" />
+              [attr.aria-label]="t().aria.github">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                <path d="M9 18c-4.51 2-5-2-7-2"/>
               </svg>
             </a>
           </li>
           <li>
-            <a
-              href="{{ linkedin }}"
-              target="_blank"
-              rel="noopener noreferrer"
+            <a href="{{ linkedin }}" target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center justify-center p-2 rounded-lg bg-slate-50 text-slate-500 hover:bg-white hover:text-blue-600 hover:shadow-sm border border-transparent hover:border-slate-200 transition-all"
-              aria-label="Perfil de LinkedIn"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-5 w-5"
-                aria-hidden="true"
-              >
-                <path
-                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                />
-                <rect width="4" height="12" x="2" y="9" />
-                <circle cx="4" cy="4" r="2" />
+              [attr.aria-label]="t().aria.linkedin">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect width="4" height="12" x="2" y="9"/>
+                <circle cx="4" cy="4" r="2"/>
               </svg>
             </a>
           </li>
@@ -1072,14 +479,9 @@
     </section>
   </main>
 
-  <footer
-    class="border-t border-slate-300 py-6 md:py-8 px-4 md:px-8 flex flex-row flex-wrap justify-between items-center gap-x-4 gap-y-1 text-sm text-slate-500 max-w-5xl mx-auto"
-    role="contentinfo"
-  >
+  <footer class="border-t border-slate-300 py-6 md:py-8 px-4 md:px-8 flex flex-row flex-wrap justify-between items-center gap-x-4 gap-y-1 text-sm text-slate-500 max-w-5xl mx-auto" role="contentinfo">
     <p class="whitespace-nowrap">Juan Pablo Vaccarezza · 2026</p>
-    <p class="whitespace-nowrap">
-      Desarrollado con <span class="text-blue-600 font-medium">Angular 20</span>
-    </p>
+    <p class="whitespace-nowrap">{{ t().footer.builtWith }} <span class="text-blue-600 font-medium">Angular 20</span></p>
   </footer>
 
   @if (isVideoModalOpen()) {
@@ -1088,41 +490,17 @@
       (click)="closeVideoModal()"
       role="dialog"
       aria-modal="true"
-      aria-label="Video del proyecto"
+      [attr.aria-label]="t().projects.videoAriaLabel"
     >
       <div class="relative w-full max-w-4xl" (click)="$event.stopPropagation()">
-        <button
-          (click)="closeVideoModal()"
-          class="absolute -top-10 right-0 text-white hover:text-blue-400 transition-colors"
-          aria-label="Cerrar video"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-7 w-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
+        <button (click)="closeVideoModal()" class="absolute -top-10 right-0 text-white hover:text-blue-400 transition-colors" [attr.aria-label]="t().projects.closeVideo">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
-        <video
-          class="w-full rounded-xl shadow-2xl"
-          controls
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="auto"
-          [src]="currentVideoUrl()"
-        ></video>
+        <video class="w-full rounded-xl shadow-2xl" controls autoplay loop muted playsinline preload="auto" [src]="currentVideoUrl()"></video>
       </div>
     </div>
   }
+
 </div>
