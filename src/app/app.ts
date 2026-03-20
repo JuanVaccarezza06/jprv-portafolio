@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LanguageService } from './services/language.service';
 
@@ -9,7 +9,6 @@ import { LanguageService } from './services/language.service';
   styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('portafolio-jprv');
 
   private languageService = inject(LanguageService);
 

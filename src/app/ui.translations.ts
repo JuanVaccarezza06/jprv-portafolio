@@ -220,5 +220,3 @@ export const UI = {
     },
   },
 } as const;
-
-export type Lang = keyof typeof UI;
