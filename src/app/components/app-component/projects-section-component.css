@@ -1,19 +1,28 @@
-@keyframes shield-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.25); }
-  50%       { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
-}
-
-.animate-shield-pulse {
-  animation: shield-pulse 2.5s ease-in-out infinite;
-}
-
+/* Scroll Reveal Suave para las nuevas tarjetas */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Modificación silenciosa del botón de Idioma hardcodeado en TS */
+.lang-toggle-container button[class*="bg-white"][class*="text-slate-900"] {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.lang-toggle-container button[class*="text-slate-400"]:hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Forzar fondo transparente para el bloque de código */
+pre { margin: 0; }
+code.hljs { background: transparent !important; }
+
