@@ -1,10 +1,9 @@
-import { Component, HostListener, signal, AfterViewInit, inject, computed } from '@angular/core';
 import Project, { ProjectTranslations } from '../../models/Project';
 import { IconComponent } from '../icon-component/icon-component';
 import { HighlightModule } from 'ngx-highlightjs';
 import { LanguageService, Lang } from '../../services/language.service';
 import { UI } from '../../ui.translations';
-import { OnDestroy, ElementRef } from '@angular/core';
+import { Component, HostListener, signal, AfterViewInit, OnDestroy, inject, computed, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-projects-section-component',

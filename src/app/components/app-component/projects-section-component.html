@@ -30,21 +30,21 @@
           {{ t().nav.home }}
         </a>
         <a
-          href="#inicio"
+          href="#servicios"
           (click)="scrollToSection($event, 'servicios')"
           class="text-sm font-medium text-[oklch(0.70_0.03_200)] hover:text-[oklch(0.95_0.01_184)] transition-colors"
         >
           {{ t().nav.services }}
         </a>
         <a
-          href="#inicio"
+          href="#proyectos"
           (click)="scrollToSection($event, 'proyectos')"
           class="text-sm font-medium text-[oklch(0.70_0.03_200)] hover:text-[oklch(0.95_0.01_184)] transition-colors"
         >
           {{ t().nav.projects }}
         </a>
         <a
-          href="#inicio"
+          href="#contacto"
           (click)="scrollToSection($event, 'contacto')"
           class="text-sm font-medium text-[oklch(0.70_0.03_200)] hover:text-[oklch(0.95_0.01_184)] transition-colors"
         >
@@ -556,12 +556,9 @@
           {{ t().contact.description }}
         </p>
 
-        <a
-          href="mailto:{{ email }}"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-2xl md:text-4xl font-bold text-[oklch(0.95_0.01_184)] hover:text-[oklch(0.6_0.118_184.704)] transition-colors break-all mb-10"
-        >
+        <a href="mailto:{{ email }}">
+          class="text-2xl md:text-4xl font-bold text-[oklch(0.95_0.01_184)]
+          hover:text-[oklch(0.6_0.118_184.704)] transition-colors break-all mb-10" >
           {{ email }}
         </a>
 
