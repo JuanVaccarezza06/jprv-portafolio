@@ -1,4 +1,70 @@
-export const UI = {
+import { Lang } from './services/language.service';
+
+export interface UIStrings {
+  role: string;
+  roleMobile: string;
+  nav: { home: string; services: string; projects: string; contact: string };
+  aria: {
+    socials: string;
+    github: string;
+    linkedin: string;
+    email: string;
+    nav: string;
+    mobileNav: string;
+    mobileMenuBtn: string;
+    langToggle: string;
+    security: string;
+    securityPractices: string;
+  };
+  hero: {
+    title: string;
+    titleHighlight: string;
+    titleEnd: string;
+    description: string;
+    viewProjects: string;
+    avaibleBadge: string;
+    contact: string;
+  };
+  security: {
+    badge: string;
+    title: string;
+    descriptionPrefix: string;
+    certKeyword: string;
+    descriptionSuffix: string;
+    tags: string[];
+  };
+  services: {
+    badge: string;
+    title: string;
+    titleHighlight: string;
+    description: string;
+    descriptionHighlight: string;
+    cta: string;
+    ctaButton: string;
+    cards: { title: string; description: string; tags: string[] }[];
+  };
+  projects: {
+    title: string;
+    description: string;
+    storyLabel: string;
+    milestonesLabel: string;
+    codeLabel: string;
+    githubLink: string;
+    demoLink: string;
+    mainTechLabel: string;
+    stackLabel: string;
+    repoAriaPrefix: string;
+    repoAriaGithub: string;
+    demoAriaPrefix: string;
+    previewAriaPrefix: string;
+    videoAriaLabel: string;
+    closeVideo: string;
+  };
+  contact: { title: string; description: string; emailLabel: string };
+  footer: { builtWith: string };
+}
+
+export const UI: Record<Lang, UIStrings> = {
   es: {
     role: 'Desarrollador de Software | Técnico Universitario',
     roleMobile: 'Desarrollador de Software',
@@ -27,6 +93,7 @@ export const UI = {
       description:
         'Traduzco complejidad técnica en una ventaja operativa. Analizo tu caso sin costo y te entrego un presupuesto real, con precios claros y accesibles para que tu proyecto despegue.',
       viewProjects: 'Ver Proyectos',
+      avaibleBadge: 'Disponible para trabajar',
       contact: 'Contactar',
     },
     security: {
@@ -108,8 +175,10 @@ export const UI = {
     footer: {
       builtWith: 'Desarrollado con',
     },
-  },
+  }, // ← cierra es
+
   en: {
+    // ← en es hermano de es, NO hijo
     role: 'Software Developer | University Technician',
     roleMobile: 'Software Developer',
     nav: {
@@ -137,6 +206,7 @@ export const UI = {
       description:
         'I translate technical complexity into an operational advantage. I analyze your case at no cost and deliver a real estimate, with clear and accessible pricing so your project can take off.',
       viewProjects: 'View Projects',
+      avaibleBadge: 'Available for work',
       contact: 'Contact',
     },
     security: {
@@ -218,5 +288,5 @@ export const UI = {
     footer: {
       builtWith: 'Built with',
     },
-  },
-} as const;
+  }, // ← cierra en
+}; // ← cierra UI (sin el cast, la anotación de tipo ya alcanza)

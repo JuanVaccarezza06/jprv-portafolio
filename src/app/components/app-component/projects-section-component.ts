@@ -4,6 +4,7 @@ import { IconComponent } from '../icon-component/icon-component';
 import { HighlightModule } from 'ngx-highlightjs';
 import { LanguageService, Lang } from '../../services/language.service';
 import { UI } from '../../ui.translations';
+import { OnDestroy, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-projects-section-component',
@@ -11,13 +12,15 @@ import { UI } from '../../ui.translations';
   templateUrl: './projects-section-component.html',
   styleUrl: './projects-section-component.css',
 })
-export class ProjectsSectionComponent implements AfterViewInit {
+export class ProjectsSectionComponent implements AfterViewInit, OnDestroy {
   private languageService = inject(LanguageService);
 
   lang = this.languageService.lang;
 
-  // UI strings (nav, headings, labels)
-  t = computed(() => UI[this.lang()]);
+  private el = inject(ElementRef);
+  private revealObserver: IntersectionObserver | null = null;
+
+t = computed(() => UI[this.lang()]);  
 
   setLang(lang: Lang): void {
     this.languageService.setLang(lang);
@@ -26,9 +29,9 @@ export class ProjectsSectionComponent implements AfterViewInit {
   langBtnClass(btn: Lang): string {
     const base =
       'px-2.5 py-1 rounded-md text-xs font-semibold transition-all cursor-pointer border-none';
-    return this.lang() === btn
-      ? `${base} bg-white border border-slate-200 text-slate-900 shadow-sm`
-      : `${base} bg-transparent text-slate-400 hover:text-slate-600`;
+    const active = 'bg-white border border-slate-200 text-slate-900 shadow-sm';
+    const inactive = 'bg-transparent text-slate-400 hover:text-slate-600';
+    return `${base} ${this.lang() === btn ? active : inactive}`;
   }
 
   // Project content — just pick the right language from the nested object
@@ -299,25 +302,29 @@ public class Almacenamiento<T extends Modelo> {
   }
 
   ngAfterViewInit(): void {
-    const observer = new IntersectionObserver(
+    this.revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+            this.revealObserver?.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0,
-        rootMargin: '0px 0px -50px 0px',
-      },
+      { threshold: 0, rootMargin: '0px 0px -50px 0px' },
     );
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    this.el.nativeElement
+      .querySelectorAll('.reveal')
+      .forEach((el: Element) => this.revealObserver!.observe(el));
   }
 
-  scrollToSection(sectionId: string): void {
+  ngOnDestroy(): void {
+    this.revealObserver?.disconnect();
+  }
+
+  scrollToSection(event: Event, sectionId: string): void {
+    event.preventDefault();
     this.mobileMenuOpen.set(false);
     const element = document.getElementById(sectionId);
     if (element) {
